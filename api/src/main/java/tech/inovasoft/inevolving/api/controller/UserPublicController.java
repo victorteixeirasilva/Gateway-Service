@@ -14,9 +14,4 @@ import java.util.concurrent.CompletableFuture;
 @RequestMapping("/api/user")
 public class UserPublicController {
 
-    @Async("asyncExecutor")
-    @GetMapping
-    public CompletableFuture<ResponseEntity<String>> createUser() {
-        return CompletableFuture.completedFuture(ResponseEntity.ok("User created"));
-    }
 }

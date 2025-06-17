@@ -2,16 +2,14 @@ package tech.inovasoft.inevolving.api.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.authentication.ReactiveAuthenticationManager;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 import tech.inovasoft.inevolving.api.domain.dto.request.RequestAuthenticationDTO;
 import tech.inovasoft.inevolving.api.domain.dto.response.ResponseLoginDTO;
 import tech.inovasoft.inevolving.api.domain.dto.response.ResponseMessageDTO;
@@ -22,48 +20,58 @@ import tech.inovasoft.inevolving.api.service.TokenService;
 
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.concurrent.CompletableFuture;
 
 @Tag(name = "Autenticação | Authentication")
 @RestController
 @RequestMapping("/api/authentication")
 public class AuthenticationController {
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    private final ReactiveAuthenticationManager authenticationManager;
+    private final UserRepositoryJPA userRepository;
+    private final TokenService tokenService;
+    private final PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private UserRepositoryJPA userRepositoryJPA;
+    public AuthenticationController(ReactiveAuthenticationManager authenticationManager,
+                                    UserRepositoryJPA userRepository,
+                                    TokenService tokenService,
+                                    PasswordEncoder passwordEncoder) {
+        this.authenticationManager = authenticationManager;
+        this.userRepository = userRepository;
+        this.tokenService = tokenService;
+        this.passwordEncoder = passwordEncoder;
+    }
 
-    @Autowired
-    private TokenService tokenService;
-
-    @Async("asyncExecutor")
     @PostMapping("/login")
-    public CompletableFuture<ResponseEntity<ResponseLoginDTO>> login(@RequestBody @Valid RequestAuthenticationDTO data) {
-        var usernamePassword = new UsernamePasswordAuthenticationToken(data.email(), data.password());
-        var auth = this.authenticationManager.authenticate(usernamePassword);
-        var token = tokenService.generateToken((User) auth.getPrincipal());
-        return CompletableFuture.completedFuture(ResponseEntity.ok(new ResponseLoginDTO(token)));
+    public Mono<ResponseEntity<ResponseLoginDTO>> login(@RequestBody @Valid RequestAuthenticationDTO data) {
+        var authToken = new UsernamePasswordAuthenticationToken(data.email(), data.password());
+
+        return authenticationManager.authenticate(authToken)
+                .map(auth -> {
+                    User user = (User) auth.getPrincipal();
+                    String token = tokenService.generateToken(user);
+                    return ResponseEntity.ok(new ResponseLoginDTO(token));
+                });
     }
 
-    @Async("asyncExecutor")
     @PostMapping("/register")
-    public CompletableFuture<ResponseEntity<ResponseMessageDTO>> register(@RequestBody @Valid RequestAuthenticationDTO data) {
-        if (this.userRepositoryJPA.findByEmail(data.email().toLowerCase()) != null) {
-            return CompletableFuture.completedFuture(ResponseEntity.badRequest().build());
-        }
+    public Mono<ResponseEntity<ResponseMessageDTO>> register(@RequestBody @Valid RequestAuthenticationDTO data) {
+        return Mono.fromCallable(() -> userRepository.findByEmail(data.email().toLowerCase()))
+                .subscribeOn(Schedulers.boundedElastic())
+                .flatMap(existing -> {
+                    if (existing.isPresent()) {
+                        return Mono.just(ResponseEntity.badRequest().body(new ResponseMessageDTO("E-mail já cadastrado")));
+                    }
 
-        String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
-        User newUser = new User();
-        newUser.setEmail(data.email().toLowerCase());
-        newUser.setPassword(encryptedPassword);
-        newUser.setLastLogin(Date.valueOf(LocalDate.now()));
-        newUser.setRole(UserRole.USER);
+                    User newUser = new User();
+                    newUser.setEmail(data.email().toLowerCase());
+                    newUser.setPassword(passwordEncoder.encode(data.password()));
+                    newUser.setLastLogin(Date.valueOf(LocalDate.now()));
+                    newUser.setRole(UserRole.USER);
 
-        this.userRepositoryJPA.save(newUser);
-
-        return CompletableFuture.completedFuture(ResponseEntity.ok(new ResponseMessageDTO("User created")));
+                    return Mono.fromCallable(() -> {
+                        userRepository.save(newUser);
+                        return ResponseEntity.ok(new ResponseMessageDTO("Usuário registrado com sucesso!"));
+                    }).subscribeOn(Schedulers.boundedElastic());
+                });
     }
-
 }

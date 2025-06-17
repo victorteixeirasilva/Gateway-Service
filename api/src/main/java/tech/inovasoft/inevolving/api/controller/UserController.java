@@ -3,13 +3,16 @@ package tech.inovasoft.inevolving.api.controller;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Async;
+import org.springframework.security.core.Authentication;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import tech.inovasoft.inevolving.api.domain.dto.response.ResponseLoginDTO;
+import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 
-import java.util.concurrent.CompletableFuture;
+
+
 
 @Tag(name = "Usuário | User")
 @RestController
@@ -17,9 +20,12 @@ import java.util.concurrent.CompletableFuture;
 @SecurityRequirement(name = "bearerAuth")
 public class UserController {
 
-    @Async("asyncExecutor")
+
     @GetMapping
-    public CompletableFuture<ResponseEntity<String>> createUserAuth() {
-        return CompletableFuture.completedFuture(ResponseEntity.ok("User created Auth"));
+    public Mono<ResponseEntity<String>> createUserAuth(Authentication authentication) {
+        return Mono.fromCallable(() -> {
+            String username = authentication.getName();
+            return ResponseEntity.ok("User created Auth for: " + username);
+        }).subscribeOn(Schedulers.boundedElastic());
     }
 }
