@@ -10,7 +10,6 @@ import java.util.UUID;
 
 @FeignClient(name = "motivation-service", url = "http://localhost:8080/ms/motivation/dreams")
 public interface MotivationServiceClient {
-    //TODO: Desenvolver teste de integração
     //TODO: Desenvolver controllers
 
     @PostMapping
