@@ -8,7 +8,6 @@ import org.springframework.security.core.Authentication;
 
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
-import tech.inovasoft.inevolving.api.domain.exception.BooksServiceException;
 import tech.inovasoft.inevolving.api.domain.model.User;
 import tech.inovasoft.inevolving.api.service.BooksService;
 import tech.inovasoft.inevolving.api.service.client.books_service.dto.Book;
