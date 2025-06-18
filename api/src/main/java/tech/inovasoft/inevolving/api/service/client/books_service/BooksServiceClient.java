@@ -12,8 +12,6 @@ import java.util.UUID;
 
 @FeignClient(name = "books-service", url = "http://localhost:8091/ms/books")
 public interface BooksServiceClient {
-    //TODO: Desenvolver teste de integração
-    //TODO: Desenvolver controllers
 
     @PostMapping("/{idUser}")
     ResponseEntity<Book> addBook(@PathVariable UUID idUser, @RequestBody RequestBookDTO dto);
