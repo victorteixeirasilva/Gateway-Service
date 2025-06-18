@@ -31,10 +31,12 @@ public class AuthenticationController {
     private final TokenService tokenService;
     private final PasswordEncoder passwordEncoder;
 
-    public AuthenticationController(ReactiveAuthenticationManager authenticationManager,
-                                    UserRepositoryJPA userRepository,
-                                    TokenService tokenService,
-                                    PasswordEncoder passwordEncoder) {
+    public AuthenticationController(
+            ReactiveAuthenticationManager authenticationManager,
+            UserRepositoryJPA userRepository,
+            TokenService tokenService,
+            PasswordEncoder passwordEncoder
+    ) {
         this.authenticationManager = authenticationManager;
         this.userRepository = userRepository;
         this.tokenService = tokenService;
