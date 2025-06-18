@@ -17,7 +17,6 @@ import java.util.concurrent.CompletableFuture;
 
 @FeignClient(name = "objectives-service", url = "http://localhost:8088/ms/objectives")
 public interface ObjectivesServiceClient {
-    //TODO: Desenvolver teste de integração
     //TODO: Desenvolver controllers
 
     @PostMapping
