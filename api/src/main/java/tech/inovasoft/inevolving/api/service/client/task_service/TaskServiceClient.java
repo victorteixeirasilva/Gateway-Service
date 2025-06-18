@@ -17,7 +17,6 @@ import java.util.concurrent.TimeoutException;
 
 @FeignClient(name = "task-service", url = "http://localhost:8085/ms/tasks")
 public interface TaskServiceClient {
-    //TODO: Desenvolver teste de integração
     //TODO: Desenvolver controllers
 
     @PostMapping
