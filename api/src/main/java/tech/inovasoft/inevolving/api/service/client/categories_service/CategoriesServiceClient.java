@@ -12,25 +12,45 @@ public interface CategoriesServiceClient {
     //TODO: Desenvolver controllers
 
     @PostMapping("/{idUser}")
-    ResponseEntity<Category> addCategory(@PathVariable("idUser") UUID idUser, @RequestBody RequestCategoryDTO dto);
+    ResponseEntity<Category> addCategory(
+            @PathVariable("idUser") UUID idUser,
+            @RequestBody RequestCategoryDTO dto
+    );
 
     @PostMapping("/objective/{idUser}")
-    ResponseEntity<ResponseCategoryAndNewObjectiveDTO> addObjectiveToCategory(@PathVariable("idUser") UUID idUser, @RequestBody RequestAddObjectiveToCategoryDTO dto);
+    ResponseEntity<ResponseCategoryAndNewObjectiveDTO> addObjectiveToCategory(
+            @PathVariable("idUser") UUID idUser,
+            @RequestBody RequestAddObjectiveToCategoryDTO dto
+    );
 
     @DeleteMapping("/objective/{idUser}/{idCategory}/{id}")
-    ResponseEntity<ResponseMessageDTO> removeObjectiveToCategory(@PathVariable("idUser") UUID idUser, @PathVariable("idCategory") UUID idCategory, @PathVariable("id") UUID idObjective);
+    ResponseEntity<ResponseMessageDTO> removeObjectiveToCategory(
+            @PathVariable("idUser") UUID idUser,
+            @PathVariable("idCategory") UUID idCategory,
+            @PathVariable("id") UUID idObjective
+    );
 
     @DeleteMapping("/{idUser}/{idCategory}")
-    ResponseEntity<ResponseMessageDTO> removeCategory(@PathVariable("idUser") UUID idUser, @PathVariable("idCategory") UUID idCategory);
+    ResponseEntity<ResponseMessageDTO> removeCategory(
+            @PathVariable("idUser") UUID idUser,
+            @PathVariable("idCategory") UUID idCategory
+    );
 
     @PatchMapping("/{idUser}/{idCategory}")
-    ResponseEntity<Category> updateCategory(@PathVariable("idUser") UUID idUser, @PathVariable("idCategory") UUID idCategory, @RequestBody RequestUpdateCategoryDTO dto);
+    ResponseEntity<Category> updateCategory(
+            @PathVariable("idUser") UUID idUser,
+            @PathVariable("idCategory") UUID idCategory,
+            @RequestBody RequestUpdateCategoryDTO dto
+    );
 
     @GetMapping("/{idUser}")
     ResponseEntity<ResponseCategoriesDTO> getCategories(@PathVariable("idUser") UUID idUser);
 
     @GetMapping("/{idUser}/{idCategory}")
-    ResponseEntity<ResponseObjectivesByCategory> getObjectivesByCategory(@PathVariable("idUser") UUID idUser, @PathVariable("idCategory") UUID idCategory);
+    ResponseEntity<ResponseObjectivesByCategory> getObjectivesByCategory(
+            @PathVariable("idUser") UUID idUser,
+            @PathVariable("idCategory") UUID idCategory
+    );
 
 
 }
