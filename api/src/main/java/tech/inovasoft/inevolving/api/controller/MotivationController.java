@@ -20,6 +20,7 @@ import java.util.UUID;
 @RequestMapping("/auth/api/motivation/dreams")
 @SecurityRequirement(name = "bearerAuth")
 public class MotivationController {
+    //TODO: Alterar requestDTOs para não receber idUser
 
     @Autowired
     private MotivationService motivationService;

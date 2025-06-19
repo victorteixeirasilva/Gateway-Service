@@ -23,6 +23,7 @@ import java.util.UUID;
 @RequestMapping("/auth/api/books")
 @SecurityRequirement(name = "bearerAuth")
 public class BooksController {
+    //TODO: Alterar requestDTOs para não receber idUser
 
     @Autowired
     private BooksService booksService;

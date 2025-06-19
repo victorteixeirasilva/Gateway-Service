@@ -14,7 +14,6 @@ import java.util.concurrent.CompletableFuture;
 
 @FeignClient(name = "finance-service", url = "http://localhost:8093/ms/finance")
 public interface FinanceServiceClient {
-    //TODO: Desenvolver controllers
 
     @PostMapping("/{idUser}")
     ResponseEntity<FinancePlanning> addPlanningWhenRegistering(
