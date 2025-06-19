@@ -49,8 +49,30 @@ public class BooksService {
     }
 
     public Book updateBook(UUID idUser, UUID idBook, RequestBookDTO dto) {
-        //TODO: Desenvolver método
-        return null;
+        ResponseEntity<Book> response = booksServiceClient.updateBook(idUser, idBook, dto);
+
+        if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
+            throw new BooksServiceException(
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), during operation (booksServiceClient.addBook(idUser, dto)).",
+                    HttpStatus.INTERNAL_SERVER_ERROR
+            );
+        }
+
+        if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
+            throw new BooksServiceException(
+                    "Error (FORBIDDEN) in micro service (books_service), during operation (booksServiceClient.addBook(idUser, dto)).",
+                    HttpStatus.FORBIDDEN
+            );
+        }
+
+        if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
+            throw new BooksServiceException(
+                    "Error (NOT_FOUND) in micro service (books_service), during operation (booksServiceClient.addBook(idUser, dto)).",
+                    HttpStatus.NOT_FOUND
+            );
+        }
+
+        return response.getBody();
     }
 
     public Book updateBookStatusToDo(UUID idUser, UUID idBook) {
