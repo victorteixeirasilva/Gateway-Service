@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
+import tech.inovasoft.inevolving.api.domain.dto.request.RequestDreams;
 import tech.inovasoft.inevolving.api.domain.model.User;
 import tech.inovasoft.inevolving.api.service.MotivationService;
 import tech.inovasoft.inevolving.api.service.client.books_service.dto.Book;
@@ -20,7 +21,6 @@ import java.util.UUID;
 @RequestMapping("/auth/api/motivation/dreams")
 @SecurityRequirement(name = "bearerAuth")
 public class MotivationController {
-    //TODO: Alterar requestDTOs para não receber idUser
 
     @Autowired
     private MotivationService motivationService;
@@ -41,25 +41,25 @@ public class MotivationController {
     @PatchMapping
     Mono<ResponseEntity<Dreams>> updateDream (
             Authentication authentication,
-            @RequestBody Mono<Dreams> monoDreamDTO
+            @RequestBody Mono<RequestDreams> monoDreamDTO
     ){
         return monoDreamDTO.map(dto -> {
             var user = (User) authentication.getPrincipal();
             var idUser = user.getId();
-            Dreams dream = motivationService.updateDream(dto);
+            Dreams dream = motivationService.updateDream(idUser, dto);
             return ResponseEntity.ok(dream);
         });
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{idDream}")
     Mono<ResponseEntity<ResponseDeleteDream>> deleteDream (
             Authentication authentication,
-            @RequestBody Mono<RequestDeleteDream> monoDto
+            @PathVariable UUID idDream
     ){
-        return monoDto.map(dto -> {
+        return Mono.fromCallable(() -> {
             var user = (User) authentication.getPrincipal();
             var idUser = user.getId();
-            ResponseDeleteDream responseDeleteDream = motivationService.deleteDream(dto);
+            ResponseDeleteDream responseDeleteDream = motivationService.deleteDream(idUser, idDream);
             return ResponseEntity.ok(responseDeleteDream);
         });
     }

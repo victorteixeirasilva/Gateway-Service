@@ -1,6 +1,7 @@
 package tech.inovasoft.inevolving.api.service;
 
 import org.springframework.stereotype.Service;
+import tech.inovasoft.inevolving.api.domain.dto.request.RequestDreams;
 import tech.inovasoft.inevolving.api.service.client.motivation_service.dto.*;
 
 import java.util.List;
@@ -14,12 +15,7 @@ public class MotivationService {
         return null;
     }
 
-    public Dreams updateDream(Dreams dto) {
-        //TODO: implement
-        return null;
-    }
-
-    public ResponseDeleteDream deleteDream(RequestDeleteDream dto) {
+    public Dreams updateDream(UUID idUser, RequestDreams dto) {
         //TODO: implement
         return null;
     }
@@ -35,6 +31,11 @@ public class MotivationService {
     }
 
     public ResponseVisionBord generateVisionBordByUserId(UUID idUser) {
+        //TODO: implement
+        return null;
+    }
+
+    public ResponseDeleteDream deleteDream(UUID idUser, UUID idDream) {
         //TODO: implement
         return null;
     }

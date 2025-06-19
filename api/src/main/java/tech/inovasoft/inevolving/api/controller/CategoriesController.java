@@ -20,7 +20,6 @@ import java.util.UUID;
 @RequestMapping("/auth/api/categories")
 @SecurityRequirement(name = "bearerAuth")
 public class CategoriesController {
-    //TODO: Alterar requestDTOs para não receber idUser
 
     @Autowired
     private CategoriesService categoriesService;

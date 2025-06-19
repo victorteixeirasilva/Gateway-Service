@@ -22,7 +22,6 @@ import java.util.UUID;
 @RequestMapping("/auth/api/dashboard")
 @SecurityRequirement(name = "bearerAuth")
 public class DashboardController {
-    //TODO: Alterar requestDTOs para não receber idUser
 
     @Autowired
     private DashboardService dashboardService;
