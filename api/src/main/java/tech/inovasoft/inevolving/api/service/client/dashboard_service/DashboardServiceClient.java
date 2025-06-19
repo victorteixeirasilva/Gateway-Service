@@ -12,7 +12,6 @@ import java.util.concurrent.CompletableFuture;
 
 @FeignClient(name = "dashboard-service", url = "http://localhost:8086/ms/dashboard")
 public interface DashboardServiceClient {
-    //TODO: Desenvolver controllers
 
     @GetMapping("/{idUser}")
     ResponseEntity<ResponseDashbordDTO> getDashboard(@PathVariable UUID idUser);

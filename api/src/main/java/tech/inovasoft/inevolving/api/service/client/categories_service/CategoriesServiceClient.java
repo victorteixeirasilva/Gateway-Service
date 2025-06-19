@@ -9,7 +9,6 @@ import java.util.UUID;
 
 @FeignClient(name = "categories-service", url = "http://localhost:8081/ms/categories")
 public interface CategoriesServiceClient {
-    //TODO: Desenvolver controllers
 
     @PostMapping("/{idUser}")
     ResponseEntity<Category> addCategory(
