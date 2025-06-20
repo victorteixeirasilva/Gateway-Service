@@ -32,14 +32,14 @@ public class CategoriesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new BooksServiceException(
+            throw new CategoriesServiceException(
                     "Error (FORBIDDEN) in micro service (categories-service), during operation (categoriesServiceClient.addCategory(idUser, dto)).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new BooksServiceException(
+            throw new CategoriesServiceException(
                     "Error (NOT_FOUND) in micro service (categories-service), during operation (categoriesServiceClient.addCategory(idUser, dto)).",
                     HttpStatus.NOT_FOUND
             );
@@ -63,14 +63,14 @@ public class CategoriesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new BooksServiceException(
+            throw new CategoriesServiceException(
                     "Error (FORBIDDEN) in micro service (categories-service), during operation (categoriesServiceClient.addObjectiveToCategory).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new BooksServiceException(
+            throw new CategoriesServiceException(
                     "Error (NOT_FOUND) in micro service (categories-service), during operation (categoriesServiceClient.addObjectiveToCategory).",
                     HttpStatus.NOT_FOUND
             );
@@ -95,14 +95,14 @@ public class CategoriesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new BooksServiceException(
+            throw new CategoriesServiceException(
                     "Error (FORBIDDEN) in micro service (categories-service), during operation (categoriesServiceClient.removeObjectiveToCategory).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new BooksServiceException(
+            throw new CategoriesServiceException(
                     "Error (NOT_FOUND) in micro service (categories-service), during operation (categoriesServiceClient.removeObjectiveToCategory).",
                     HttpStatus.NOT_FOUND
             );
@@ -127,14 +127,14 @@ public class CategoriesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new BooksServiceException(
+            throw new CategoriesServiceException(
                     "Error (FORBIDDEN) in micro service (categories-service), during operation (categoriesServiceClient.removeCategory).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new BooksServiceException(
+            throw new CategoriesServiceException(
                     "Error (NOT_FOUND) in micro service (categories-service), during operation (categoriesServiceClient.removeCategory).",
                     HttpStatus.NOT_FOUND
             );
@@ -159,14 +159,14 @@ public class CategoriesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new BooksServiceException(
+            throw new CategoriesServiceException(
                     "Error (FORBIDDEN) in micro service (categories-service), during operation (categoriesServiceClient.updateCategory).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new BooksServiceException(
+            throw new CategoriesServiceException(
                     "Error (NOT_FOUND) in micro service (categories-service), during operation (categoriesServiceClient.updateCategory).",
                     HttpStatus.NOT_FOUND
             );
@@ -189,14 +189,14 @@ public class CategoriesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new BooksServiceException(
+            throw new CategoriesServiceException(
                     "Error (FORBIDDEN) in micro service (categories-service), during operation (categoriesServiceClient.getCategories).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new BooksServiceException(
+            throw new CategoriesServiceException(
                     "Error (NOT_FOUND) in micro service (categories-service), during operation (categoriesServiceClient.getCategories).",
                     HttpStatus.NOT_FOUND
             );
@@ -220,14 +220,14 @@ public class CategoriesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new BooksServiceException(
+            throw new CategoriesServiceException(
                     "Error (FORBIDDEN) in micro service (categories-service), during operation (categoriesServiceClient.getObjectivesByCategory).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new BooksServiceException(
+            throw new CategoriesServiceException(
                     "Error (NOT_FOUND) in micro service (categories-service), during operation (categoriesServiceClient.getObjectivesByCategory).",
                     HttpStatus.NOT_FOUND
             );

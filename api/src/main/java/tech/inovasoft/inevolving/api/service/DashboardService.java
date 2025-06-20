@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import tech.inovasoft.inevolving.api.domain.exception.BooksServiceException;
 import tech.inovasoft.inevolving.api.domain.exception.CategoriesServiceException;
+import tech.inovasoft.inevolving.api.domain.exception.DashboardServiceException;
 import tech.inovasoft.inevolving.api.service.client.categories_service.dto.Category;
 import tech.inovasoft.inevolving.api.service.client.dashboard_service.DashboardServiceClient;
 import tech.inovasoft.inevolving.api.service.client.dashboard_service.dto.ResponseDashbordDTO;
@@ -23,21 +24,21 @@ public class DashboardService {
                 dashboardServiceClient.getDashboard(idUser);
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
-            throw new CategoriesServiceException(
+            throw new DashboardServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (dashboard-service), during operation (dashboardServiceClient.getDashboard).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new BooksServiceException(
+            throw new DashboardServiceException(
                     "Error (FORBIDDEN) in micro service (dashboard-service), during operation (dashboardServiceClient.getDashboard).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new BooksServiceException(
+            throw new DashboardServiceException(
                     "Error (NOT_FOUND) in micro service (dashboard-service), during operation (dashboardServiceClient.getDashboard).",
                     HttpStatus.NOT_FOUND
             );

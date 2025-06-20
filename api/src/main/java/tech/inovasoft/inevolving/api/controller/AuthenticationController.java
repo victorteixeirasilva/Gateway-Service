@@ -45,6 +45,8 @@ public class AuthenticationController {
 
     @PostMapping("/login")
     public Mono<ResponseEntity<ResponseLoginDTO>> login(@RequestBody @Valid RequestAuthenticationDTO data) {
+        // TODO: Desenvolver validação de email
+        // TODO: Consumir gerador de VisionBord assim que se logar
         var authToken = new UsernamePasswordAuthenticationToken(data.email(), data.password());
 
         return authenticationManager.authenticate(authToken)
@@ -57,6 +59,7 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public Mono<ResponseEntity<ResponseMessageDTO>> register(@RequestBody @Valid RequestAuthenticationDTO data) {
+        // TODO: Desenvolver chamada ao FinancePlanning assim que se registrar.
         return Mono.fromCallable(() -> userRepository.findByEmail(data.email().toLowerCase()))
                 .subscribeOn(Schedulers.boundedElastic())
                 .flatMap(existing -> {
