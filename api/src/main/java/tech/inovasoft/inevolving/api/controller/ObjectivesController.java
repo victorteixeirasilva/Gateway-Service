@@ -48,7 +48,7 @@ public class ObjectivesController {
         return monoDto.map(dto -> {
             var user = (User) authentication.getPrincipal();
             var idUser = user.getId();
-            Objective objective = objectivesService.update(idUser, dto);
+            Objective objective = objectivesService.update(idObjective, idUser, dto);
             return ResponseEntity.ok(objective);
         });
     }
