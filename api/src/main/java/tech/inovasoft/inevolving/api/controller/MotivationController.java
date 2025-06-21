@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
+import tech.inovasoft.inevolving.api.domain.dto.request.RequestDreamDTO;
 import tech.inovasoft.inevolving.api.domain.dto.request.RequestDreams;
 import tech.inovasoft.inevolving.api.domain.model.User;
 import tech.inovasoft.inevolving.api.service.MotivationService;
@@ -28,7 +29,7 @@ public class MotivationController {
     @PostMapping
     Mono<ResponseEntity<Dreams>> addDream (
             Authentication authentication,
-            @RequestBody Mono<DreamRequestDTO> monoDreamDTO
+            @RequestBody Mono<RequestDreamDTO> monoDreamDTO
     ) {
         return monoDreamDTO.map(dto -> {
             var user = (User) authentication.getPrincipal();
