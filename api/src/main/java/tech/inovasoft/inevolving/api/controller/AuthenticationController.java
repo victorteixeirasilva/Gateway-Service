@@ -14,16 +14,21 @@ import reactor.core.scheduler.Schedulers;
 import tech.inovasoft.inevolving.api.domain.dto.request.RequestAuthenticationDTO;
 import tech.inovasoft.inevolving.api.domain.dto.response.ResponseLoginDTO;
 import tech.inovasoft.inevolving.api.domain.dto.response.ResponseMessageDTO;
+import tech.inovasoft.inevolving.api.domain.exception.EmailNotVerifiedException;
 import tech.inovasoft.inevolving.api.domain.model.User;
 import tech.inovasoft.inevolving.api.domain.model.UserRole;
 import tech.inovasoft.inevolving.api.repository.interfaces.UserRepositoryJPA;
+import tech.inovasoft.inevolving.api.service.EmailService;
 import tech.inovasoft.inevolving.api.service.FinanceService;
 import tech.inovasoft.inevolving.api.service.MotivationService;
 import tech.inovasoft.inevolving.api.service.TokenService;
+import tech.inovasoft.inevolving.api.service.client.email_service.dto.EmailRequest;
 import tech.inovasoft.inevolving.api.service.client.finance_service.dto.FinancePlanning;
+import tech.inovasoft.inevolving.api.service.client.motivation_service.dto.ResponseVisionBord;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Tag(name = "Autenticação | Authentication")
 @RestController
@@ -51,6 +56,8 @@ public class AuthenticationController {
     private MotivationService motivationService;
     @Autowired
     private FinanceService financeService;
+    @Autowired
+    private EmailService emailService;
 
     @PostMapping("/login")
     public Mono<ResponseEntity<ResponseLoginDTO>> login(@RequestBody @Valid RequestAuthenticationDTO data) {
@@ -60,18 +67,21 @@ public class AuthenticationController {
                 .map(auth -> {
                     User user = (User) auth.getPrincipal();
                     String token = tokenService.generateToken(user);
-                    try {
-                        motivationService.generateVisionBordByUserId(user.getId());
-                    } catch (Exception _){
-
+                    if (user.isEmailVerified()) {
+                        try {
+                            var response = motivationService.generateVisionBordByUserId(user.getId());
+                            return ResponseEntity.ok(new ResponseLoginDTO(token, response.urlVisionBord()));
+                        } catch (Exception e){
+                            return ResponseEntity.ok(new ResponseLoginDTO(token, "No dreams were found"));
+                        }
+                    } else {
+                        throw new EmailNotVerifiedException("Confirme seu email, para fazer login.");
                     }
-                    return ResponseEntity.ok(new ResponseLoginDTO(token));
                 });
     }
 
     @PostMapping("/register")
     public Mono<ResponseEntity<ResponseMessageDTO>> register(@RequestBody @Valid RequestAuthenticationDTO data) {
-        // TODO: Desenvolver validação de email
         return Mono.fromCallable(() -> userRepository.findByEmail(data.email().toLowerCase()))
                 .subscribeOn(Schedulers.boundedElastic())
                 .flatMap(existing -> {
@@ -86,7 +96,14 @@ public class AuthenticationController {
                     newUser.setRole(UserRole.USER);
 
                     return Mono.fromCallable(() -> {
-                        financeService.addPlanningWhenRegistering(userRepository.save(newUser).getId());
+                        UUID idUser = userRepository.save(newUser).getId();
+                        financeService.addPlanningWhenRegistering(idUser);
+                        emailService.sendEmail(new EmailRequest(
+                                newUser.getEmail(),
+                                "Bem-vindo ao InEvolving, confirme seu-email.",
+                                "Confirme seu email clicando no link abaixo: \n" +
+                                        "http://localhost:8090/api/user/confirm/email/" + idUser
+                        ));
                         return ResponseEntity.ok(new ResponseMessageDTO("Usuário registrado com sucesso!"));
                     }).subscribeOn(Schedulers.boundedElastic());
                 });
