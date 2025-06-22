@@ -4,13 +4,11 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 @Getter
-public class EmailNotVerifiedException extends RuntimeException {
-
+public class TasksServiceException extends RuntimeException {
     private final HttpStatus httpStatus;
 
-    public EmailNotVerifiedException(String message) {
+    public TasksServiceException(String message, HttpStatus httpStatus) {
         super(message);
-        this.httpStatus = HttpStatus.UNAUTHORIZED;
+        this.httpStatus = httpStatus;
     }
-
 }

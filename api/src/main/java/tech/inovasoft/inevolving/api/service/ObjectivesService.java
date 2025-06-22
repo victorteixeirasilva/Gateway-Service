@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import tech.inovasoft.inevolving.api.domain.dto.request.CreateObjectiveDTO;
 import tech.inovasoft.inevolving.api.domain.exception.DashboardServiceException;
+import tech.inovasoft.inevolving.api.domain.exception.ObjectivesServiceException;
 import tech.inovasoft.inevolving.api.service.client.objectives_service.ObjectivesServiceClient;
 import tech.inovasoft.inevolving.api.service.client.objectives_service.dto.Objective;
 import tech.inovasoft.inevolving.api.service.client.objectives_service.dto.RequestCreateObjectiveDTO;
@@ -26,7 +27,7 @@ public class ObjectivesService {
                 objectivesServiceClient.add(new RequestCreateObjectiveDTO(idUser, dto));
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.add).",
                     HttpStatus.INTERNAL_SERVER_ERROR
@@ -34,7 +35,7 @@ public class ObjectivesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (FORBIDDEN) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.add).",
                     HttpStatus.FORBIDDEN
@@ -42,7 +43,7 @@ public class ObjectivesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (NOT_FOUND) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.add).",
                     HttpStatus.NOT_FOUND
@@ -57,7 +58,7 @@ public class ObjectivesService {
                 objectivesServiceClient.update(idObjective, idUser, new RequestCreateObjectiveDTO(idUser, dto));
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.update).",
                     HttpStatus.INTERNAL_SERVER_ERROR
@@ -65,7 +66,7 @@ public class ObjectivesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (FORBIDDEN) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.update).",
                     HttpStatus.FORBIDDEN
@@ -73,7 +74,7 @@ public class ObjectivesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (NOT_FOUND) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.update).",
                     HttpStatus.NOT_FOUND
@@ -88,7 +89,7 @@ public class ObjectivesService {
                 objectivesServiceClient.completeObjective(idObjective, conclusionDate, idUser);
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.completeObjective).",
                     HttpStatus.INTERNAL_SERVER_ERROR
@@ -96,7 +97,7 @@ public class ObjectivesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (FORBIDDEN) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.completeObjective).",
                     HttpStatus.FORBIDDEN
@@ -104,7 +105,7 @@ public class ObjectivesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (NOT_FOUND) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.completeObjective).",
                     HttpStatus.NOT_FOUND
@@ -119,7 +120,7 @@ public class ObjectivesService {
                 objectivesServiceClient.getObjectiveById(idObjective, idUser);
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.getObjectiveById).",
                     HttpStatus.INTERNAL_SERVER_ERROR
@@ -127,7 +128,7 @@ public class ObjectivesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (FORBIDDEN) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.getObjectiveById).",
                     HttpStatus.FORBIDDEN
@@ -135,7 +136,7 @@ public class ObjectivesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (NOT_FOUND) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.getObjectiveById).",
                     HttpStatus.NOT_FOUND
@@ -150,7 +151,7 @@ public class ObjectivesService {
                 objectivesServiceClient.getObjectivesByIdUser(idUser);
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.getObjectivesByIdUser).",
                     HttpStatus.INTERNAL_SERVER_ERROR
@@ -158,7 +159,7 @@ public class ObjectivesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (FORBIDDEN) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.getObjectivesByIdUser).",
                     HttpStatus.FORBIDDEN
@@ -166,7 +167,7 @@ public class ObjectivesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (NOT_FOUND) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.getObjectivesByIdUser).",
                     HttpStatus.NOT_FOUND
@@ -181,7 +182,7 @@ public class ObjectivesService {
                 objectivesServiceClient.getObjectivesByIdUserToDo(idUser);
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.getObjectivesByIdUserToDo).",
                     HttpStatus.INTERNAL_SERVER_ERROR
@@ -189,7 +190,7 @@ public class ObjectivesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (FORBIDDEN) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.getObjectivesByIdUserToDo).",
                     HttpStatus.FORBIDDEN
@@ -197,7 +198,7 @@ public class ObjectivesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (NOT_FOUND) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.getObjectivesByIdUserToDo).",
                     HttpStatus.NOT_FOUND
@@ -213,7 +214,7 @@ public class ObjectivesService {
                 objectivesServiceClient.getObjectivesByIdUserDone(idUser);
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.getObjectivesByIdUserDone).",
                     HttpStatus.INTERNAL_SERVER_ERROR
@@ -221,7 +222,7 @@ public class ObjectivesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (FORBIDDEN) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.getObjectivesByIdUserDone).",
                     HttpStatus.FORBIDDEN
@@ -229,7 +230,7 @@ public class ObjectivesService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new DashboardServiceException(
+            throw new ObjectivesServiceException(
                     "Error (NOT_FOUND) in micro service (objectives-service), during operation " +
                             "(objectivesServiceClient.getObjectivesByIdUserDone).",
                     HttpStatus.NOT_FOUND

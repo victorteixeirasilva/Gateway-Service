@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import tech.inovasoft.inevolving.api.domain.dto.request.RequestDreamDTO;
 import tech.inovasoft.inevolving.api.domain.dto.request.RequestDreams;
 import tech.inovasoft.inevolving.api.domain.exception.DashboardServiceException;
+import tech.inovasoft.inevolving.api.domain.exception.MotivationServiceException;
 import tech.inovasoft.inevolving.api.service.client.finance_service.dto.FinancePlanning;
 import tech.inovasoft.inevolving.api.service.client.motivation_service.MotivationServiceClient;
 import tech.inovasoft.inevolving.api.service.client.motivation_service.dto.*;
@@ -25,21 +26,21 @@ public class MotivationService {
                 motivationServiceClient.addDream(new DreamRequestDTO(idUser, dto));
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (motivation-service), during operation (motivationServiceClient.addDream).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (FORBIDDEN) in micro service (motivation-service), during operation (motivationServiceClient.addDream).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (NOT_FOUND) in micro service (motivation-service), during operation (motivationServiceClient.addDream).",
                     HttpStatus.NOT_FOUND
             );
@@ -53,21 +54,21 @@ public class MotivationService {
                 motivationServiceClient.updateDream(new Dreams(idUser, dto));
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (motivation-service), during operation (motivationServiceClient.updateDream).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (FORBIDDEN) in micro service (motivation-service), during operation (motivationServiceClient.updateDream).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (NOT_FOUND) in micro service (motivation-service), during operation (motivationServiceClient.updateDream).",
                     HttpStatus.NOT_FOUND
             );
@@ -81,21 +82,21 @@ public class MotivationService {
                 motivationServiceClient.getDreamsByUserId(idUser);
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (motivation-service), during operation (motivationServiceClient.getDreamsByUserId).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (FORBIDDEN) in micro service (motivation-service), during operation (motivationServiceClient.getDreamsByUserId).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (NOT_FOUND) in micro service (motivation-service), during operation (motivationServiceClient.getDreamsByUserId).",
                     HttpStatus.NOT_FOUND
             );
@@ -109,21 +110,21 @@ public class MotivationService {
                 motivationServiceClient.getDreamByID(idDream,idUser);
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (motivation-service), during operation (motivationServiceClient.getDreamByID).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (FORBIDDEN) in micro service (motivation-service), during operation (motivationServiceClient.getDreamByID).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (NOT_FOUND) in micro service (motivation-service), during operation (motivationServiceClient.getDreamByID).",
                     HttpStatus.NOT_FOUND
             );
@@ -137,7 +138,7 @@ public class MotivationService {
                 motivationServiceClient.generateVisionBordByUserId(idUser);
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (motivation-service), during operation " +
                             "(motivationServiceClient.generateVisionBordByUserId).",
                     HttpStatus.INTERNAL_SERVER_ERROR
@@ -145,7 +146,7 @@ public class MotivationService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (FORBIDDEN) in micro service (motivation-service), during operation " +
                             "(motivationServiceClient.generateVisionBordByUserId).",
                     HttpStatus.FORBIDDEN
@@ -153,7 +154,7 @@ public class MotivationService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (NOT_FOUND) in micro service (motivation-service), during operation " +
                             "(motivationServiceClient.generateVisionBordByUserId).",
                     HttpStatus.NOT_FOUND
@@ -168,7 +169,7 @@ public class MotivationService {
                 motivationServiceClient.deleteDream(new RequestDeleteDream(idDream, idUser));
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (motivation-service), during operation " +
                             "(motivationServiceClient.deleteDream).",
                     HttpStatus.INTERNAL_SERVER_ERROR
@@ -176,7 +177,7 @@ public class MotivationService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (FORBIDDEN) in micro service (motivation-service), during operation " +
                             "(motivationServiceClient.deleteDream).",
                     HttpStatus.FORBIDDEN
@@ -184,7 +185,7 @@ public class MotivationService {
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-            throw new DashboardServiceException(
+            throw new MotivationServiceException(
                     "Error (NOT_FOUND) in micro service (motivation-service), during operation " +
                             "(motivationServiceClient.deleteDream).",
                     HttpStatus.NOT_FOUND
