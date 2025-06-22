@@ -2,6 +2,7 @@ package tech.inovasoft.inevolving.api.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
@@ -16,7 +17,10 @@ import tech.inovasoft.inevolving.api.domain.dto.response.ResponseMessageDTO;
 import tech.inovasoft.inevolving.api.domain.model.User;
 import tech.inovasoft.inevolving.api.domain.model.UserRole;
 import tech.inovasoft.inevolving.api.repository.interfaces.UserRepositoryJPA;
+import tech.inovasoft.inevolving.api.service.FinanceService;
+import tech.inovasoft.inevolving.api.service.MotivationService;
 import tech.inovasoft.inevolving.api.service.TokenService;
+import tech.inovasoft.inevolving.api.service.client.finance_service.dto.FinancePlanning;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -43,23 +47,31 @@ public class AuthenticationController {
         this.passwordEncoder = passwordEncoder;
     }
 
+    @Autowired
+    private MotivationService motivationService;
+    @Autowired
+    private FinanceService financeService;
+
     @PostMapping("/login")
     public Mono<ResponseEntity<ResponseLoginDTO>> login(@RequestBody @Valid RequestAuthenticationDTO data) {
-        // TODO: Desenvolver validação de email
-        // TODO: Consumir gerador de VisionBord assim que se logar
         var authToken = new UsernamePasswordAuthenticationToken(data.email(), data.password());
 
         return authenticationManager.authenticate(authToken)
                 .map(auth -> {
                     User user = (User) auth.getPrincipal();
                     String token = tokenService.generateToken(user);
+                    try {
+                        motivationService.generateVisionBordByUserId(user.getId());
+                    } catch (Exception _){
+
+                    }
                     return ResponseEntity.ok(new ResponseLoginDTO(token));
                 });
     }
 
     @PostMapping("/register")
     public Mono<ResponseEntity<ResponseMessageDTO>> register(@RequestBody @Valid RequestAuthenticationDTO data) {
-        // TODO: Desenvolver chamada ao FinancePlanning assim que se registrar.
+        // TODO: Desenvolver validação de email
         return Mono.fromCallable(() -> userRepository.findByEmail(data.email().toLowerCase()))
                 .subscribeOn(Schedulers.boundedElastic())
                 .flatMap(existing -> {
@@ -74,7 +86,7 @@ public class AuthenticationController {
                     newUser.setRole(UserRole.USER);
 
                     return Mono.fromCallable(() -> {
-                        userRepository.save(newUser);
+                        financeService.addPlanningWhenRegistering(userRepository.save(newUser).getId());
                         return ResponseEntity.ok(new ResponseMessageDTO("Usuário registrado com sucesso!"));
                     }).subscribeOn(Schedulers.boundedElastic());
                 });
