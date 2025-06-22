@@ -1,5 +1,6 @@
 package tech.inovasoft.inevolving.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import java.sql.Date;
 import java.util.List;
 import java.util.UUID;
 
-@Tag(name = "Objetivos | Objectives")
+@Tag(name = "Tarefas | Tasks")
 @RestController
 @RequestMapping("/auth/api/tasks")
 @SecurityRequirement(name = "bearerAuth")
@@ -26,6 +27,7 @@ public class TaskController {
     @Autowired
     private TasksService tasksService;
 
+    @Operation(description = "End-point para adicionar uma nova tarefa.")
     @PostMapping
     Mono<ResponseEntity<ResponseTaskDTO>> addTask(
             Authentication authentication,
@@ -39,6 +41,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para repetir uma nova tarefa.")
     @PostMapping("/repeat/{idTask}/{startDate}/{endDate}")
     Mono<ResponseEntity<ResponseRepeatTaskDTO>> repeatTask(
             Authentication authentication,
@@ -55,6 +58,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para atualizar uma tarefa.")
     @PutMapping("/{idTask}")
     Mono<ResponseEntity<ResponseTaskDTO>> updateTask(
             Authentication authentication,
@@ -69,6 +73,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para atualizar uma tarefa e suas futuras repetições.")
     @PutMapping("/repeat/{idTask}/{endDate}")
     Mono<ResponseEntity<ResponseUpdateRepeatTaskDTO>> updateTasksAndTheirFutureRepetitions(
             Authentication authentication,
@@ -85,6 +90,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para atualizar o status de uma tarefa para pendente.")
     @PatchMapping("/status/todo/{idTask}")
     Mono<ResponseEntity<ResponseTaskDTO>> updateTaskStatusToDo(
             Authentication authentication,
@@ -99,6 +105,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para atualizar o status de uma tarefa para em andamento.")
     @PatchMapping("/status/progress/{idTask}")
     Mono<ResponseEntity<ResponseTaskDTO>> updateTaskStatusInProgress(
             Authentication authentication,
@@ -113,6 +120,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para atualizar o status de uma tarefa para concluída.")
     @PatchMapping("/status/done/{idTask}")
     Mono<ResponseEntity<ResponseTaskDTO>> updateTaskStatusDone(
             Authentication authentication,
@@ -127,6 +135,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para atualizar o status de uma tarefa para atrasada.")
     @PatchMapping("/status/late/{idTask}")
     Mono<ResponseEntity<ResponseTaskDTO>> updateTaskStatusLate(
             Authentication authentication,
@@ -141,6 +150,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para atualizar o status de uma tarefa para cancelada.")
     @PatchMapping("/status/canceled")
     Mono<ResponseEntity<ResponseTaskDTO>> updateTaskStatusCanceled(
             Authentication authentication,
@@ -155,6 +165,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para deletar uma tarefa.")
     @DeleteMapping("/{idTask}")
     Mono<ResponseEntity<ResponseMessageDTO>> deleteTask(
             Authentication authentication,
@@ -169,6 +180,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para deletar uma tarefa e suas futuras repetições.")
     @DeleteMapping("/repeat/{idTask}/{date}")
     Mono<ResponseEntity<ResponseDeleteTasksDTO>> deleteTasksAndTheirFutureRepetitions(
             Authentication authentication,
@@ -184,6 +196,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point responsável por bloquear as tarefa antigas de um objetivo concluido para manter o histórico.")
     @DeleteMapping("/lock/{completionDate}/{idObjective}")
     Mono<ResponseEntity<ResponseMessageDTO>> lockTaskByObjective(
             Authentication authentication,
@@ -199,6 +212,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para buscar as tarefas em um intervalo de datas.")
     @GetMapping("/{startDate}/{endDate}")
     Mono<ResponseEntity<List<Task>>> getTasksInDateRange(
             Authentication authentication,
@@ -214,6 +228,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para buscar as tarefas em um intervalo de datas por objetivo.")
     @GetMapping("/{idObjective}/{startDate}/{endDate}")
     Mono<ResponseEntity<List<Task>>> getTasksInDateRangeByObjectiveId(
             Authentication authentication,
@@ -230,6 +245,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para buscar as tarefas por objetivo.")
     @GetMapping("/{idObjective}")
     Mono<ResponseEntity<List<Task>>> getTasksByObjectiveId(
             Authentication authentication,
@@ -244,6 +260,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para buscar as tarefas em uma data.")
     @GetMapping("/{date}")
     Mono<ResponseEntity<List<Task>>> getTasksInDate(
             Authentication authentication,
@@ -258,6 +275,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para buscar as tarefas atrasadas.")
     @GetMapping("/late")
     Mono<ResponseEntity<List<Task>>> getTasksLate(
             Authentication authentication
@@ -271,6 +289,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para buscar as tarefas pendentes em um intervalo de datas.")
     @GetMapping("/status/todo/{startDate}/{endDate}")
     Mono<ResponseEntity<List<Task>>> getTasksToDoInDateRange(
             Authentication authentication,
@@ -286,6 +305,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para buscar as tarefas pendentes em uma data.")
     @GetMapping("/status/todo/{date}")
     Mono<ResponseEntity<List<Task>>> getTasksToDoInDate(
             Authentication authentication,
@@ -300,6 +320,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para buscar as tarefas em andamento em um intervalo de datas.")
     @GetMapping("/status/progress/{startDate}/{endDate}")
     Mono<ResponseEntity<List<Task>>> getTasksInProgressInDateRange(
             Authentication authentication,
@@ -315,6 +336,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para buscar as tarefas em andamento em uma data.")
     @GetMapping("/status/progress/{date}")
     Mono<ResponseEntity<List<Task>>> getTasksInProgressInDate(
             Authentication authentication,
@@ -329,6 +351,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para buscar as tarefas concluídas em um intervalo de datas.")
     @GetMapping("/status/done/{startDate}/{endDate}")
     Mono<ResponseEntity<List<Task>>> getTasksDoneInDateRange(
             Authentication authentication,
@@ -344,6 +367,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para buscar as tarefas concluídas em uma data.")
     @GetMapping("/status/done/{date}")
     Mono<ResponseEntity<List<Task>>> getTasksDoneInDate(
             Authentication authentication,
@@ -358,6 +382,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para buscar as tarefas canceladas em um intervalo de datas.")
     @GetMapping("/status/canceled/{startDate}/{endDate}")
     Mono<ResponseEntity<List<Task>>> getTasksCanceledInDateRange(
             Authentication authentication,
@@ -373,6 +398,7 @@ public class TaskController {
         });
     }
 
+    @Operation(description = "End-point para buscar as tarefas canceladas em uma data.")
     @GetMapping("/status/canceled/{date}")
     Mono<ResponseEntity<List<Task>>> getTasksCanceledInDate(
             Authentication authentication,

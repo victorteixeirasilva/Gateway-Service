@@ -1,5 +1,6 @@
 package tech.inovasoft.inevolving.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class EmailController {
     @Autowired
     private EmailService emailService;
 
+    @Operation(description = "End-point para Enviar e-mail")
     @PostMapping
     Mono<ResponseEntity<String>> sendEmail(
             Authentication authentication,

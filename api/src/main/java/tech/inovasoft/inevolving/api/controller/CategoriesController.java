@@ -1,5 +1,6 @@
 package tech.inovasoft.inevolving.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class CategoriesController {
     @Autowired
     private CategoriesService categoriesService;
 
+    @Operation(description = "End-point para adicionar uma nova categoria a lista de categorias do usuário.")
     @PostMapping
     Mono<ResponseEntity<Category>> addCategory(
             Authentication authentication,
@@ -37,6 +39,7 @@ public class CategoriesController {
         });
     }
 
+    @Operation(description = "End-point para adicionar um novo objetivo a uma categoria.")
     @PostMapping("/objective")
     Mono<ResponseEntity<ResponseCategoryAndNewObjectiveDTO>> addObjectiveToCategory(
             Authentication authentication,
@@ -51,6 +54,7 @@ public class CategoriesController {
         });
     }
 
+    @Operation(description = "End-point para remover um objetivo de uma categoria.")
     @DeleteMapping("/objective/{idCategory}/{id}")
     Mono<ResponseEntity<ResponseMessageDTO>> removeObjectiveToCategory(
             Authentication authentication,
@@ -66,6 +70,7 @@ public class CategoriesController {
         });
     }
 
+    @Operation(description = "End-point para remover uma categoria.")
     @DeleteMapping("/{idCategory}")
     Mono<ResponseEntity<ResponseMessageDTO>> removeCategory(
             Authentication authentication,
@@ -80,6 +85,7 @@ public class CategoriesController {
         });
     }
 
+    @Operation(description = "End-point para atualizar uma categoria.")
     @PatchMapping("/{idCategory}")
     Mono<ResponseEntity<Category>> updateCategory(
             Authentication authentication,
@@ -95,6 +101,7 @@ public class CategoriesController {
         });
     }
 
+    @Operation(description = "End-point para obter todas as categorias de um usuário.")
     @GetMapping
     Mono<ResponseEntity<ResponseCategoriesDTO>> getCategories(
             Authentication authentication
@@ -108,6 +115,7 @@ public class CategoriesController {
         });
     }
 
+    @Operation(description = "End-point para obter todos os objetivos de uma categoria.")
     @GetMapping("/{idCategory}")
     Mono<ResponseEntity<ResponseObjectivesByCategory>> getObjectivesByCategory(
             Authentication authentication,

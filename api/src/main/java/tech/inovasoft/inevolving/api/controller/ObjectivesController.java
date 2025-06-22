@@ -1,5 +1,6 @@
 package tech.inovasoft.inevolving.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class ObjectivesController {
     @Autowired
     private ObjectivesService objectivesService;
 
+    @Operation(description = "End-point para adicionar um novo objetivo.")
     @PostMapping
     Mono<ResponseEntity<Objective>> add(
             Authentication authentication,
@@ -39,6 +41,7 @@ public class ObjectivesController {
         });
     }
 
+    @Operation(description = "End-point para atualizar um objetivo.")
     @PutMapping("/{idObjective}")
     Mono<ResponseEntity<Objective>> update(
             Authentication authentication,
@@ -53,6 +56,7 @@ public class ObjectivesController {
         });
     }
 
+    @Operation(description = "End-point para marcar objetivo, como concluido.")
     @PatchMapping("/{idObjective}/{conclusionDate}")
     Mono<ResponseEntity<ResponseMessageDTO>> completeObjective(
             Authentication authentication,
@@ -68,6 +72,7 @@ public class ObjectivesController {
         });
     }
 
+    @Operation(description = "End-point para obter um objetivo.")
     @GetMapping("/{idObjective}")
     Mono<ResponseEntity<Objective>> getObjectiveById(
             Authentication authentication,
@@ -82,6 +87,7 @@ public class ObjectivesController {
         });
     }
 
+    @Operation(description = "End-point para obter todos os objetivos do usuário.")
     @GetMapping("/user")
     Mono<ResponseEntity<List<Objective>>>  getObjectivesByIdUser(
             Authentication authentication
@@ -95,6 +101,7 @@ public class ObjectivesController {
         });
     }
 
+    @Operation(description = "End-point para obter todos os objetivos pendentes do usuário.")
     @GetMapping("/status/todo/user")
     Mono<ResponseEntity<List<Objective>>> getObjectivesByIdUserToDo(
             Authentication authentication
@@ -108,6 +115,7 @@ public class ObjectivesController {
         });
     }
 
+    @Operation(description = "End-point para obter todos os objetivos concluidos do usuário.")
     @GetMapping("/status/done/user")
     Mono<ResponseEntity<List<Objective>>> getObjectivesByIdUserDone(
             Authentication authentication

@@ -1,5 +1,6 @@
 package tech.inovasoft.inevolving.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ public class BooksController {
     @Autowired
     private BooksService booksService;
 
+    @Operation(description = "End-point para adicionar um novo livro a lista de leitura do usuário. | Registra um novo livro a lista de leitura do usuário, o livro sempre é adicionado como pendente a leitura.")
     @PostMapping
     public Mono<ResponseEntity<Book>> addBook(
             Authentication authentication,
@@ -41,6 +43,7 @@ public class BooksController {
 
     }
 
+    @Operation(description = "End-point para editar um livro da lista de leitura do usuário.")
     @PutMapping("/{idBook}")
     Mono<ResponseEntity<Book>> updateBook(
             Authentication authentication,
@@ -55,6 +58,7 @@ public class BooksController {
         });
     }
 
+    @Operation(description = "End-point para editar o status de um livro para pendente da lista de leitura do usuário.")
     @PatchMapping("/status/todo/{idBook}")
     Mono<ResponseEntity<Book>> updateBookStatusToDo(
             Authentication authentication,
@@ -68,6 +72,7 @@ public class BooksController {
         });
     }
 
+    @Operation(description = "End-point para editar o status de um livro para em progresso da lista de leitura do usuário.")
     @PatchMapping("/status/progress/{idBook}")
     Mono<ResponseEntity<Book>> updateBookStatusInProgress(
             Authentication authentication,
@@ -81,6 +86,7 @@ public class BooksController {
         });
     }
 
+    @Operation(description = "End-point para editar o status de um livro para concluido da lista de leitura do usuário.")
     @PatchMapping("/status/completed/{idBook}")
     Mono<ResponseEntity<Book>> updateBookStatusCompleted(
             Authentication authentication,
@@ -94,6 +100,7 @@ public class BooksController {
         });
     }
 
+    @Operation(description = "End-point para deletar um livro da lista de leitura do usuário.")
     @DeleteMapping("/{idBook}")
     Mono<ResponseEntity<ResponseDeleteBookDTO>> deleteBook(
             Authentication authentication,
@@ -107,6 +114,7 @@ public class BooksController {
         });
     }
 
+    @Operation(description = "End-point para listar todos os livros da lista de leitura do usuário.")
     @GetMapping
     Mono<ResponseEntity<List<Book>>> getBooks(
             Authentication authentication
@@ -119,6 +127,7 @@ public class BooksController {
         });
     }
 
+    @Operation(description = "End-point para listar todos os livros pendentes da lista de leitura do usuário.")
     @GetMapping("/status/todo")
     Mono<ResponseEntity<List<Book>>> getBooksToDo(
             Authentication authentication
@@ -131,6 +140,7 @@ public class BooksController {
         });
     }
 
+    @Operation(description = "End-point para listar todos os livros em progresso da lista de leitura do usuário.")
     @GetMapping("/status/progress")
     Mono<ResponseEntity<List<Book>>> getBooksInProgress(
             Authentication authentication
@@ -143,6 +153,7 @@ public class BooksController {
         });
     }
 
+    @Operation(description = "End-point para listar todos os livros concluidos da lista de leitura do usuário.")
     @GetMapping("/status/completed")
     Mono<ResponseEntity<List<Book>>> getBooksCompleted(
             Authentication authentication
@@ -155,6 +166,7 @@ public class BooksController {
         });
     }
 
+    @Operation(description = "End-point para listar um livro da lista de leitura do usuário.")
     @GetMapping("/{idBook}")
     Mono<ResponseEntity<Book>> getBook(
             Authentication authentication,

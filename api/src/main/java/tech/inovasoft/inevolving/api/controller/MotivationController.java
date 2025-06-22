@@ -1,5 +1,6 @@
 package tech.inovasoft.inevolving.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import tech.inovasoft.inevolving.api.domain.dto.request.RequestDreamDTO;
 import tech.inovasoft.inevolving.api.domain.dto.request.RequestDreams;
 import tech.inovasoft.inevolving.api.domain.model.User;
 import tech.inovasoft.inevolving.api.service.MotivationService;
-import tech.inovasoft.inevolving.api.service.client.books_service.dto.Book;
 import tech.inovasoft.inevolving.api.service.client.motivation_service.dto.*;
 
 import java.util.List;
@@ -26,6 +26,7 @@ public class MotivationController {
     @Autowired
     private MotivationService motivationService;
 
+    @Operation(description = "End-point para adicionar um novo sonho, que será usado para enviar os emails motivacionais, e para gerar o vision bord.")
     @PostMapping
     Mono<ResponseEntity<Dreams>> addDream (
             Authentication authentication,
@@ -39,6 +40,7 @@ public class MotivationController {
         });
     }
 
+    @Operation(description = "End-point para atualizar um sonho.")
     @PatchMapping
     Mono<ResponseEntity<Dreams>> updateDream (
             Authentication authentication,
@@ -52,6 +54,7 @@ public class MotivationController {
         });
     }
 
+    @Operation(description = "End-point para deletar um sonho.")
     @DeleteMapping("/{idDream}")
     Mono<ResponseEntity<ResponseDeleteDream>> deleteDream (
             Authentication authentication,
@@ -65,6 +68,7 @@ public class MotivationController {
         });
     }
 
+    @Operation(description = "End-point para listar todos os sonhos do usuário.")
     @GetMapping("/user")
     Mono<ResponseEntity<List<Dreams>>> getDreamsByUserId(Authentication authentication){
         return Mono.fromCallable(() -> {
@@ -75,6 +79,7 @@ public class MotivationController {
         });
     }
 
+    @Operation(description = "End-point para obter um sonho pelo id.")
     @GetMapping("/{idDream}")
     Mono<ResponseEntity<Dreams>> getDreamByID(
             Authentication authentication,
@@ -88,6 +93,7 @@ public class MotivationController {
         });
     }
 
+    @Operation(description = "End-point para gerar o vision bord.")
     @GetMapping("/visionbord/generate")
     Mono<ResponseEntity<ResponseVisionBord>> generateVisionBordByUserId(Authentication authentication){
         return Mono.fromCallable(() -> {

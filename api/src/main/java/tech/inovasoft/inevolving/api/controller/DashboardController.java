@@ -1,5 +1,6 @@
 package tech.inovasoft.inevolving.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class DashboardController {
     @Autowired
     private DashboardService dashboardService;
 
+    @Operation(description = "End-point para obter o dashboard do usuário.")
     @GetMapping
     Mono<ResponseEntity<ResponseDashbordDTO>> getDashboard(Authentication authentication){
         return Mono.fromCallable(() -> {

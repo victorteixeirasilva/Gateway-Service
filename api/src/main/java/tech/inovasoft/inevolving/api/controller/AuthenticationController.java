@@ -1,5 +1,6 @@
 package tech.inovasoft.inevolving.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +60,10 @@ public class AuthenticationController {
     @Autowired
     private EmailService emailService;
 
+    @Operation(
+            summary = "End-point de Login",
+            description = "Realiza o login do usuário e retorna seu token de acesso e sua imagem de vision bord."
+    )
     @PostMapping("/login")
     public Mono<ResponseEntity<ResponseLoginDTO>> login(@RequestBody @Valid RequestAuthenticationDTO data) {
         var authToken = new UsernamePasswordAuthenticationToken(data.email(), data.password());
@@ -80,6 +85,10 @@ public class AuthenticationController {
                 });
     }
 
+    @Operation(
+            summary = "End-point para Registar um novo usuário.",
+            description = "Realiza o registro de um novo usuário e envia um email para o usuário confirmar seu e-mail cadastrado."
+    )
     @PostMapping("/register")
     public Mono<ResponseEntity<ResponseMessageDTO>> register(@RequestBody @Valid RequestAuthenticationDTO data) {
         return Mono.fromCallable(() -> userRepository.findByEmail(data.email().toLowerCase()))

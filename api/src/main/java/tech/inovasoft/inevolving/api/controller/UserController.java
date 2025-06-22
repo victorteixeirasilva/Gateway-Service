@@ -1,5 +1,6 @@
 package tech.inovasoft.inevolving.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Operation(description = "End-point publico para confirmar o email do usuário.")
     @GetMapping("/confirm/email/{idUser}")
     Mono<ResponseEntity<ResponseMessageDTO>> confirmEmail(@PathVariable("idUser") UUID idUser) {
         return Mono.fromCallable(() -> {
