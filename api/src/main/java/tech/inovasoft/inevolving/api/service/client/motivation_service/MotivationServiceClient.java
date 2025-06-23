@@ -14,7 +14,7 @@ public interface MotivationServiceClient {
     @PostMapping
     ResponseEntity<Dreams> addDream (@RequestBody DreamRequestDTO dreamDTO);
 
-    @PatchMapping
+    @PutMapping
     ResponseEntity<Dreams> updateDream (@RequestBody Dreams dreamDTO);
 
     @DeleteMapping

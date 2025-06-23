@@ -19,13 +19,13 @@ public interface BooksServiceClient {
     @PutMapping("/{idUser}/{idBook}")
     ResponseEntity<Book> updateBook(@PathVariable UUID idUser, @PathVariable UUID idBook, @RequestBody RequestBookDTO dto);
 
-    @PatchMapping("/status/todo/{idUser}/{idBook}")
+    @PutMapping("/status/todo/{idUser}/{idBook}")
     ResponseEntity<Book> updateBookStatusToDo(@PathVariable UUID idUser, @PathVariable UUID idBook);
 
-    @PatchMapping("/status/progress/{idUser}/{idBook}")
+    @PutMapping("/status/progress/{idUser}/{idBook}")
     ResponseEntity<Book> updateBookStatusInProgress(@PathVariable UUID idUser, @PathVariable UUID idBook);
 
-    @PatchMapping("/status/completed/{idUser}/{idBook}")
+    @PutMapping("/status/completed/{idUser}/{idBook}")
     ResponseEntity<Book> updateBookStatusCompleted(@PathVariable UUID idUser, @PathVariable UUID idBook);
 
     @DeleteMapping("/{idUser}/{idBook}")

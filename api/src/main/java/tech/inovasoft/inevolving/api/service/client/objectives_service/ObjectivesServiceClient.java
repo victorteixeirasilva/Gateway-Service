@@ -30,7 +30,7 @@ public interface ObjectivesServiceClient {
             @RequestBody RequestCreateObjectiveDTO dto
     );
 
-    @PatchMapping("/{idObjective}/{conclusionDate}/{idUser}")
+    @PutMapping("/{idObjective}/{conclusionDate}/{idUser}")
     ResponseEntity<ResponseMessageDTO> completeObjective(
             @PathVariable UUID idObjective,
             @PathVariable LocalDate conclusionDate,

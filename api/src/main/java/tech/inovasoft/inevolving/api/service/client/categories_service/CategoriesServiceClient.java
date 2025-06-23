@@ -35,7 +35,7 @@ public interface CategoriesServiceClient {
             @PathVariable("idCategory") UUID idCategory
     );
 
-    @PatchMapping("/{idUser}/{idCategory}")
+    @PutMapping("/{idUser}/{idCategory}")
     ResponseEntity<Category> updateCategory(
             @PathVariable("idUser") UUID idUser,
             @PathVariable("idCategory") UUID idCategory,

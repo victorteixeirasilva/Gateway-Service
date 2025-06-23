@@ -47,31 +47,31 @@ public interface TaskServiceClient {
             @RequestBody RequestUpdateRepeatTaskDTO updateTaskDTO
     );
 
-    @PatchMapping("/status/todo/{idUser}/{idTask}")
+    @PutMapping("/status/todo/{idUser}/{idTask}")
     ResponseEntity<ResponseTaskDTO> updateTaskStatusToDo(
             @PathVariable UUID idUser,
             @PathVariable UUID idTask
     );
 
-    @PatchMapping("/status/progress/{idUser}/{idTask}")
+    @PutMapping("/status/progress/{idUser}/{idTask}")
     ResponseEntity<ResponseTaskDTO> updateTaskStatusInProgress(
             @PathVariable UUID idUser,
             @PathVariable UUID idTask
     );
 
-    @PatchMapping("/status/done/{idUser}/{idTask}")
+    @PutMapping("/status/done/{idUser}/{idTask}")
     ResponseEntity<ResponseTaskDTO> updateTaskStatusDone(
             @PathVariable UUID idUser,
             @PathVariable UUID idTask
     );
 
-    @PatchMapping("/status/late/{idUser}/{idTask}")
+    @PutMapping("/status/late/{idUser}/{idTask}")
     ResponseEntity<ResponseTaskDTO> updateTaskStatusLate(
             @PathVariable UUID idUser,
             @PathVariable UUID idTask
     );
 
-    @PatchMapping("/status/canceled")
+    @PutMapping("/status/canceled")
     ResponseEntity<ResponseTaskDTO> updateTaskStatusCanceled(
             @RequestBody RequestCanceledDTO dto
     );

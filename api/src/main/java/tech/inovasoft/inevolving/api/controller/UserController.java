@@ -23,15 +23,15 @@ import java.util.UUID;
 @SecurityRequirement(name = "bearerAuth")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
-
-    @GetMapping("/verified/active")
-    Mono<ResponseEntity<List<UserEmailDTO>>> getUsersIsVerifiedAndActive() {
-        return Mono.fromCallable(() -> {
-            List<UserEmailDTO> userList = userService.getUsersIsVerifiedAndActive();
-            return ResponseEntity.ok(userList);
-        });
-    }
+//    @Autowired
+//    private UserService userService;
+//
+//    @GetMapping("/verified/active")
+//    Mono<ResponseEntity<List<UserEmailDTO>>> getUsersIsVerifiedAndActive() {
+//        return Mono.fromCallable(() -> {
+//            List<UserEmailDTO> userList = userService.getUsersIsVerifiedAndActive();
+//            return ResponseEntity.ok(userList);
+//        });
+//    }
 
 }

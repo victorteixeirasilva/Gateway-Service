@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 import tech.inovasoft.inevolving.api.domain.dto.response.ResponseMessageDTO;
+import tech.inovasoft.inevolving.api.domain.dto.response.UserEmailDTO;
 import tech.inovasoft.inevolving.api.service.UserService;
 
+import java.util.List;
 import java.util.UUID;
 
 @Tag(name = "Usuário | User")
@@ -30,6 +32,14 @@ public class UserNoAuthController {
         return Mono.fromCallable(() -> {
             ResponseMessageDTO responseMessageDTO = userService.confirmEmail(idUser);
             return ResponseEntity.ok(responseMessageDTO);
+        });
+    }
+
+    @GetMapping("/verified/active")
+    Mono<ResponseEntity<List<UserEmailDTO>>> getUsersIsVerifiedAndActive() {
+        return Mono.fromCallable(() -> {
+            List<UserEmailDTO> userList = userService.getUsersIsVerifiedAndActive();
+            return ResponseEntity.ok(userList);
         });
     }
 

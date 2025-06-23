@@ -20,7 +20,7 @@ public interface FinanceServiceClient {
             @PathVariable("idUser") UUID idUser
     );
 
-    @PatchMapping("/wage/{idUser}")
+    @PutMapping("/wage/{idUser}")
     ResponseEntity<ResponseUserWageDTO> updateWage(
             @PathVariable("idUser") UUID idUser,
             @RequestBody RequestUpdateWageDTO requestDTO
