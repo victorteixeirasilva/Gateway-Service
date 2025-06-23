@@ -27,21 +27,24 @@ public class MotivationService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new MotivationServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (motivation-service), during operation (motivationServiceClient.addDream).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (motivation-service), during operation " +
+                    "(motivationServiceClient.addDream(new DreamRequestDTO(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new MotivationServiceException(
-                    "Error (FORBIDDEN) in micro service (motivation-service), during operation (motivationServiceClient.addDream).",
+                    "Error (FORBIDDEN) in micro service (motivation-service), during operation " +
+                    "(motivationServiceClient.addDream(new DreamRequestDTO(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new MotivationServiceException(
-                    "Error (NOT_FOUND) in micro service (motivation-service), during operation (motivationServiceClient.addDream).",
+                    "Error (NOT_FOUND) in micro service (motivation-service), during operation " +
+                    "(motivationServiceClient.addDream(new DreamRequestDTO(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -55,21 +58,24 @@ public class MotivationService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new MotivationServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (motivation-service), during operation (motivationServiceClient.updateDream).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (motivation-service), during operation " +
+                    "(motivationServiceClient.updateDream(new Dreams(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new MotivationServiceException(
-                    "Error (FORBIDDEN) in micro service (motivation-service), during operation (motivationServiceClient.updateDream).",
+                    "Error (FORBIDDEN) in micro service (motivation-service), during operation " +
+                    "(motivationServiceClient.updateDream(new Dreams(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new MotivationServiceException(
-                    "Error (NOT_FOUND) in micro service (motivation-service), during operation (motivationServiceClient.updateDream).",
+                    "Error (NOT_FOUND) in micro service (motivation-service), during operation " +
+                    "(motivationServiceClient.updateDream(new Dreams(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -83,21 +89,24 @@ public class MotivationService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new MotivationServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (motivation-service), during operation (motivationServiceClient.getDreamsByUserId).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (motivation-service), during operation " +
+                    "(motivationServiceClient.getDreamsByUserId(idUser(" + idUser + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new MotivationServiceException(
-                    "Error (FORBIDDEN) in micro service (motivation-service), during operation (motivationServiceClient.getDreamsByUserId).",
+                    "Error (FORBIDDEN) in micro service (motivation-service), during operation " +
+                    "(motivationServiceClient.getDreamsByUserId(idUser(" + idUser + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new MotivationServiceException(
-                    "Error (NOT_FOUND) in micro service (motivation-service), during operation (motivationServiceClient.getDreamsByUserId).",
+                    "Error (NOT_FOUND) in micro service (motivation-service), during operation " +
+                    "(motivationServiceClient.getDreamsByUserId(idUser(" + idUser + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -111,21 +120,24 @@ public class MotivationService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new MotivationServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (motivation-service), during operation (motivationServiceClient.getDreamByID).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (motivation-service), during operation " +
+                    "(motivationServiceClient.getDreamByID(idDream(" + idDream + "),idUser(" + idUser + ")))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new MotivationServiceException(
-                    "Error (FORBIDDEN) in micro service (motivation-service), during operation (motivationServiceClient.getDreamByID).",
+                    "Error (FORBIDDEN) in micro service (motivation-service), during operation " +
+                    "(motivationServiceClient.getDreamByID(idDream(" + idDream + "),idUser(" + idUser + ")))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new MotivationServiceException(
-                    "Error (NOT_FOUND) in micro service (motivation-service), during operation (motivationServiceClient.getDreamByID).",
+                    "Error (NOT_FOUND) in micro service (motivation-service), during operation " +
+                    "(motivationServiceClient.getDreamByID(idDream(" + idDream + "),idUser(" + idUser + ")))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -140,7 +152,7 @@ public class MotivationService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new MotivationServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (motivation-service), during operation " +
-                            "(motivationServiceClient.generateVisionBordByUserId).",
+                    "(motivationServiceClient.generateVisionBordByUserId(idUser(" + idUser + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -148,7 +160,7 @@ public class MotivationService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new MotivationServiceException(
                     "Error (FORBIDDEN) in micro service (motivation-service), during operation " +
-                            "(motivationServiceClient.generateVisionBordByUserId).",
+                    "(motivationServiceClient.generateVisionBordByUserId(idUser(" + idUser + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -156,7 +168,7 @@ public class MotivationService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new MotivationServiceException(
                     "Error (NOT_FOUND) in micro service (motivation-service), during operation " +
-                            "(motivationServiceClient.generateVisionBordByUserId).",
+                    "(motivationServiceClient.generateVisionBordByUserId(idUser(" + idUser + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -171,7 +183,7 @@ public class MotivationService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new MotivationServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (motivation-service), during operation " +
-                            "(motivationServiceClient.deleteDream).",
+                    "(motivationServiceClient.deleteDream(new RequestDeleteDream(idDream(" + idDream + "), idUser(" + idUser + "))))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -179,7 +191,7 @@ public class MotivationService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new MotivationServiceException(
                     "Error (FORBIDDEN) in micro service (motivation-service), during operation " +
-                            "(motivationServiceClient.deleteDream).",
+                    "(motivationServiceClient.deleteDream(new RequestDeleteDream(idDream(" + idDream + "), idUser(" + idUser + "))))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -187,7 +199,7 @@ public class MotivationService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new MotivationServiceException(
                     "Error (NOT_FOUND) in micro service (motivation-service), during operation " +
-                            "(motivationServiceClient.deleteDream).",
+                    "(motivationServiceClient.deleteDream(new RequestDeleteDream(idDream(" + idDream + "), idUser(" + idUser + "))))).",
                     HttpStatus.NOT_FOUND
             );
         }

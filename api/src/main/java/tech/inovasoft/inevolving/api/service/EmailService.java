@@ -22,21 +22,24 @@ public class EmailService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new EmailServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (email-service), during operation (emailServiceClient.sendEmail).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (email-service), during operation " +
+                            "(emailServiceClient.sendEmail(dto ("+dto+"))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new EmailServiceException(
-                    "Error (FORBIDDEN) in micro service (email-service), during operation (emailServiceClient.sendEmail).",
+                    "Error (FORBIDDEN) in micro service (email-service), during operation " +
+                            "(emailServiceClient.sendEmail(dto ("+dto+"))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new EmailServiceException(
-                    "Error (NOT_FOUND) in micro service (email-service), during operation (emailServiceClient.sendEmail).",
+                    "Error (NOT_FOUND) in micro service (email-service), during operation " +
+                            "(emailServiceClient.sendEmail(dto ("+dto+"))).",
                     HttpStatus.NOT_FOUND
             );
         }

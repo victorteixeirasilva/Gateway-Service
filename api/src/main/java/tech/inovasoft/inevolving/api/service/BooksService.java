@@ -1,5 +1,6 @@
 package tech.inovasoft.inevolving.api.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import tech.inovasoft.inevolving.api.service.client.books_service.dto.ResponseDe
 import java.util.List;
 import java.util.UUID;
 
+
 @Service
 public class BooksService {
 
@@ -26,21 +28,21 @@ public class BooksService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new BooksServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), during operation (booksServiceClient.addBook(idUser, dto)).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), during operation (booksServiceClient.addBook("+idUser+", "+dto+")).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new BooksServiceException(
-                    "Error (FORBIDDEN) in micro service (books_service), during operation (booksServiceClient.addBook(idUser, dto)).",
+                    "Error (FORBIDDEN) in micro service (books_service), during operation (booksServiceClient.addBook("+idUser+", "+dto+")).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new BooksServiceException(
-                    "Error (NOT_FOUND) in micro service (books_service), during operation (booksServiceClient.addBook(idUser, dto)).",
+                    "Error (NOT_FOUND) in micro service (books_service), during operation (booksServiceClient.addBook(idUser - "+idUser+", dto - "+dto+")).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -53,21 +55,24 @@ public class BooksService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new BooksServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), during operation (updateBook(UUID idUser, UUID idBook, RequestBookDTO dto)).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), during operation " +
+                            "(updateBook(UUID idUser (" + idUser + "), UUID idBook (" + idBook + "), RequestBookDTO dto (" + dto + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new BooksServiceException(
-                    "Error (FORBIDDEN) in micro service (books_service), during operation (updateBook(UUID idUser, UUID idBook, RequestBookDTO dto)).",
+                    "Error (FORBIDDEN) in micro service (books_service), during operation " +
+                            "(updateBook(UUID idUser (" + idUser + "), UUID idBook (" + idBook + "), RequestBookDTO dto (" + dto + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new BooksServiceException(
-                    "Error (NOT_FOUND) in micro service (books_service), during operation (updateBook(UUID idUser, UUID idBook, RequestBookDTO dto)).",
+                    "Error (NOT_FOUND) in micro service (books_service), during operation " +
+                            "(updateBook(UUID idUser (" + idUser + "), UUID idBook (" + idBook + "), RequestBookDTO dto (" + dto + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -80,21 +85,24 @@ public class BooksService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new BooksServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), during operation (updateBookStatusToDo(UUID idUser, UUID idBook)).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), during operation " +
+                            "(updateBookStatusToDo(UUID idUser (" + idUser + "), UUID idBook (" + idBook + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new BooksServiceException(
-                    "Error (FORBIDDEN) in micro service (books_service), during operation (updateBookStatusToDo(UUID idUser, UUID idBook)).",
+                    "Error (FORBIDDEN) in micro service (books_service), during operation " +
+                            "(updateBookStatusToDo(UUID idUser (" + idUser + "), UUID idBook (" + idBook + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new BooksServiceException(
-                    "Error (NOT_FOUND) in micro service (books_service), during operation (updateBookStatusToDo(UUID idUser, UUID idBook)).",
+                    "Error (NOT_FOUND) in micro service (books_service), during operation " +
+                            "(updateBookStatusToDo(UUID idUser (" + idUser + "), UUID idBook (" + idBook + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -108,21 +116,24 @@ public class BooksService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new BooksServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), during operation (updateBookStatusInProgress(UUID idUser, UUID idBook)).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), during operation " +
+                            "(updateBookStatusInProgress(UUID idUser (" + idUser + "), UUID idBook (" + idBook + ")))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new BooksServiceException(
-                    "Error (FORBIDDEN) in micro service (books_service), during operation (updateBookStatusInProgress(UUID idUser, UUID idBook)).",
+                    "Error (FORBIDDEN) in micro service (books_service), during operation " +
+                            "(updateBookStatusInProgress(UUID idUser (" + idUser + "), UUID idBook (" + idBook + ")))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new BooksServiceException(
-                    "Error (NOT_FOUND) in micro service (books_service), during operation (updateBookStatusInProgress(UUID idUser, UUID idBook)).",
+                    "Error (NOT_FOUND) in micro service (books_service), during operation " +
+                            "(updateBookStatusInProgress(UUID idUser (" + idUser + "), UUID idBook (" + idBook + ")))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -135,21 +146,24 @@ public class BooksService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new BooksServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), during operation (updateBookStatusCompleted(UUID idUser, UUID idBook)).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), during operation " +
+                            "(updateBookStatusCompleted(UUID idUser (" + idUser + "), UUID idBook (" + idBook + ")))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new BooksServiceException(
-                    "Error (FORBIDDEN) in micro service (books_service), during operation (updateBookStatusCompleted(UUID idUser, UUID idBook)).",
+                    "Error (FORBIDDEN) in micro service (books_service), during operation " +
+                            "(updateBookStatusCompleted(UUID idUser (" + idUser + "), UUID idBook (" + idBook + ")))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new BooksServiceException(
-                    "Error (NOT_FOUND) in micro service (books_service), during operation (updateBookStatusCompleted(UUID idUser, UUID idBook)).",
+                    "Error (NOT_FOUND) in micro service (books_service), during operation " +
+                            "(updateBookStatusCompleted(UUID idUser (" + idUser + "), UUID idBook (" + idBook + ")))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -163,21 +177,24 @@ public class BooksService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new BooksServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), during operation (deleteBook(UUID idUser, UUID idBook)).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), during operation " +
+                            "(deleteBook(UUID idUser (" + idUser + "), UUID idBook (" + idBook + ")))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new BooksServiceException(
-                    "Error (FORBIDDEN) in micro service (books_service), during operation (deleteBook(UUID idUser, UUID idBook)).",
+                    "Error (FORBIDDEN) in micro service (books_service), during operation " +
+                            "(deleteBook(UUID idUser (" + idUser + "), UUID idBook (" + idBook + ")))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new BooksServiceException(
-                    "Error (NOT_FOUND) in micro service (books_service), during operation (deleteBook(UUID idUser, UUID idBook)).",
+                    "Error (NOT_FOUND) in micro service (books_service), during operation " +
+                            "(deleteBook(UUID idUser (" + idUser + "), UUID idBook (" + idBook + ")))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -190,21 +207,24 @@ public class BooksService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new BooksServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), during operation (getBooks(UUID idUser)).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), " +
+                            "during operation (getBooks(UUID idUser (" + idUser + ")))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new BooksServiceException(
-                    "Error (FORBIDDEN) in micro service (books_service), during operation (getBooks(UUID idUser)).",
+                    "Error (FORBIDDEN) in micro service (books_service), during operation " +
+                            "during operation (getBooks(UUID idUser (" + idUser + ")))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new BooksServiceException(
-                    "Error (NOT_FOUND) in micro service (books_service), during operation (getBooks(UUID idUser)).",
+                    "Error (NOT_FOUND) in micro service (books_service), during operation " +
+                            "during operation (getBooks(UUID idUser (" + idUser + ")))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -298,21 +318,24 @@ public class BooksService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new BooksServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), during operation (getBook(UUID idUser, UUID idBook)).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (books_service), " +
+                            "during operation (getBook(UUID idUser (" + idUser + "), UUID idBook (" + idBook + ")))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new BooksServiceException(
-                    "Error (FORBIDDEN) in micro service (books_service), during operation (getBook(UUID idUser, UUID idBook)).",
+                    "Error (FORBIDDEN) in micro service (books_service), during operation " +
+                            "during operation (getBook(UUID idUser (" + idUser + "), UUID idBook (" + idBook + ")))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new BooksServiceException(
-                    "Error (NOT_FOUND) in micro service (books_service), during operation (getBook(UUID idUser, UUID idBook)).",
+                    "Error (NOT_FOUND) in micro service (books_service), during operation " +
+                            "during operation (getBook(UUID idUser (" + idUser + "), UUID idBook (" + idBook + ")))).",
                     HttpStatus.NOT_FOUND
             );
         }

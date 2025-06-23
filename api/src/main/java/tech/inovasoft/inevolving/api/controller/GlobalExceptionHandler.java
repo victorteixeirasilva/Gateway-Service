@@ -1,6 +1,7 @@
 package tech.inovasoft.inevolving.api.controller;
 
 import feign.FeignException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -10,6 +11,7 @@ import reactor.core.publisher.Mono;
 import tech.inovasoft.inevolving.api.domain.dto.response.ExceptionResponse;
 import tech.inovasoft.inevolving.api.domain.exception.*;
 
+@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -20,6 +22,7 @@ public class GlobalExceptionHandler {
                 ex.getMessage()
         );
 
+        log.error("ERROR: {} - {}", ex.getClass().getSimpleName(), ex.getMessage());
         return Mono.just(ResponseEntity
                 .status(ex.getHttpStatus())
                 .body(response));
@@ -32,6 +35,7 @@ public class GlobalExceptionHandler {
                 ex.getMessage()
         );
 
+        log.error("ERROR: {} - {}", ex.getClass().getSimpleName(), ex.getMessage());
         return Mono.just(ResponseEntity
                 .status(ex.getHttpStatus())
                 .body(response));
@@ -44,6 +48,7 @@ public class GlobalExceptionHandler {
                 ex.getMessage()
         );
 
+        log.error("ERROR: {} - {}", ex.getClass().getSimpleName(), ex.getMessage());
         return Mono.just(ResponseEntity
                 .status(ex.getHttpStatus())
                 .body(response));
@@ -56,6 +61,7 @@ public class GlobalExceptionHandler {
                 ex.getMessage()
         );
 
+        log.error("ERROR: {} - {}", ex.getClass().getSimpleName(), ex.getMessage());
         return Mono.just(ResponseEntity
                 .status(ex.getHttpStatus())
                 .body(response));
@@ -68,6 +74,7 @@ public class GlobalExceptionHandler {
                 ex.getMessage()
         );
 
+        log.error("ERROR: {} - {}", ex.getClass().getSimpleName(), ex.getMessage());
         return Mono.just(ResponseEntity
                 .status(ex.getHttpStatus())
                 .body(response));
@@ -80,6 +87,7 @@ public class GlobalExceptionHandler {
                 ex.getMessage()
         );
 
+        log.error("ERROR: {} - {}", ex.getClass().getSimpleName(), ex.getMessage());
         return Mono.just(ResponseEntity
                 .status(ex.getHttpStatus())
                 .body(response));
@@ -92,6 +100,7 @@ public class GlobalExceptionHandler {
                 ex.getMessage()
         );
 
+        log.error("ERROR: {} - {}", ex.getClass().getSimpleName(), ex.getMessage());
         return Mono.just(ResponseEntity
                 .status(ex.getHttpStatus())
                 .body(response));
@@ -104,6 +113,7 @@ public class GlobalExceptionHandler {
                 ex.getMessage()
         );
 
+        log.error("ERROR: {} - {}", ex.getClass().getSimpleName(), ex.getMessage());
         return Mono.just(ResponseEntity
                 .status(ex.getHttpStatus())
                 .body(response));
@@ -116,6 +126,7 @@ public class GlobalExceptionHandler {
                 ex.getMessage()
         );
 
+        log.error("ERROR: {} - {}", ex.getClass().getSimpleName(), ex.getMessage());
         return Mono.just(ResponseEntity
                 .status(ex.getHttpStatus())
                 .body(response));
@@ -128,6 +139,7 @@ public class GlobalExceptionHandler {
                 ex.getMessage()
         );
 
+        log.error("ERROR: {} - {}", ex.getClass().getSimpleName(), ex.getMessage());
         return Mono.just(ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
                 .body(response));
@@ -140,6 +152,7 @@ public class GlobalExceptionHandler {
                 ex.getMessage()
         );
 
+        log.error("ERROR: {} - {}", ex.getClass().getSimpleName(), ex.getMessage());
         return Mono.just(ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(response));

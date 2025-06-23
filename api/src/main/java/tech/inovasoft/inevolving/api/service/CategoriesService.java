@@ -26,21 +26,24 @@ public class CategoriesService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new CategoriesServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (categories-service), during operation (categoriesServiceClient.addCategory(idUser, dto)).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.addCategory(idUser ("+idUser+"), dto ("+dto+"))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new CategoriesServiceException(
-                    "Error (FORBIDDEN) in micro service (categories-service), during operation (categoriesServiceClient.addCategory(idUser, dto)).",
+                    "Error (FORBIDDEN) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.addCategory(idUser ("+idUser+"), dto ("+dto+"))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new CategoriesServiceException(
-                    "Error (NOT_FOUND) in micro service (categories-service), during operation (categoriesServiceClient.addCategory(idUser, dto)).",
+                    "Error (NOT_FOUND) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.addCategory(idUser ("+idUser+"), dto ("+dto+"))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -57,21 +60,24 @@ public class CategoriesService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new CategoriesServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (categories-service), during operation (categoriesServiceClient.addObjectiveToCategory).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.addObjectiveToCategory(idUser ("+idUser+"), dto ("+dto+")).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new CategoriesServiceException(
-                    "Error (FORBIDDEN) in micro service (categories-service), during operation (categoriesServiceClient.addObjectiveToCategory).",
+                    "Error (FORBIDDEN) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.addObjectiveToCategory(idUser ("+idUser+"), dto ("+dto+")).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new CategoriesServiceException(
-                    "Error (NOT_FOUND) in micro service (categories-service), during operation (categoriesServiceClient.addObjectiveToCategory).",
+                    "Error (NOT_FOUND) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.addObjectiveToCategory(idUser ("+idUser+"), dto ("+dto+")).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -89,21 +95,24 @@ public class CategoriesService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new CategoriesServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (categories-service), during operation (categoriesServiceClient.removeObjectiveToCategory).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.removeObjectiveToCategory(idUser ("+idUser+"), idCategory ("+idCategory+"), idObjective ("+idObjective+")).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new CategoriesServiceException(
-                    "Error (FORBIDDEN) in micro service (categories-service), during operation (categoriesServiceClient.removeObjectiveToCategory).",
+                    "Error (FORBIDDEN) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.removeObjectiveToCategory(idUser ("+idUser+"), idCategory ("+idCategory+"), idObjective ("+idObjective+")).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new CategoriesServiceException(
-                    "Error (NOT_FOUND) in micro service (categories-service), during operation (categoriesServiceClient.removeObjectiveToCategory).",
+                    "Error (NOT_FOUND) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.removeObjectiveToCategory(idUser ("+idUser+"), idCategory ("+idCategory+"), idObjective ("+idObjective+")).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -121,21 +130,24 @@ public class CategoriesService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new CategoriesServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (categories-service), during operation (categoriesServiceClient.removeCategory).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.removeCategory(idUser ("+idUser+"), idCategory ("+idCategory+"))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new CategoriesServiceException(
-                    "Error (FORBIDDEN) in micro service (categories-service), during operation (categoriesServiceClient.removeCategory).",
+                    "Error (FORBIDDEN) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.removeCategory(idUser ("+idUser+"), idCategory ("+idCategory+"))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new CategoriesServiceException(
-                    "Error (NOT_FOUND) in micro service (categories-service), during operation (categoriesServiceClient.removeCategory).",
+                    "Error (NOT_FOUND) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.removeCategory(idUser ("+idUser+"), idCategory ("+idCategory+"))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -153,21 +165,24 @@ public class CategoriesService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new CategoriesServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (categories-service), during operation (categoriesServiceClient.updateCategory).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.updateCategory(idUser ("+idUser+"), idCategory ("+idCategory+"), dto ("+dto+")).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new CategoriesServiceException(
-                    "Error (FORBIDDEN) in micro service (categories-service), during operation (categoriesServiceClient.updateCategory).",
+                    "Error (FORBIDDEN) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.updateCategory(idUser ("+idUser+"), idCategory ("+idCategory+"), dto ("+dto+")).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new CategoriesServiceException(
-                    "Error (NOT_FOUND) in micro service (categories-service), during operation (categoriesServiceClient.updateCategory).",
+                    "Error (NOT_FOUND) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.updateCategory(idUser ("+idUser+"), idCategory ("+idCategory+"), dto ("+dto+")).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -183,21 +198,24 @@ public class CategoriesService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new CategoriesServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (categories-service), during operation (categoriesServiceClient.getCategories).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.getCategories(idUser ("+idUser+"))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new CategoriesServiceException(
-                    "Error (FORBIDDEN) in micro service (categories-service), during operation (categoriesServiceClient.getCategories).",
+                    "Error (FORBIDDEN) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.getCategories(idUser ("+idUser+"))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new CategoriesServiceException(
-                    "Error (NOT_FOUND) in micro service (categories-service), during operation (categoriesServiceClient.getCategories).",
+                    "Error (NOT_FOUND) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.getCategories(idUser ("+idUser+"))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -214,21 +232,24 @@ public class CategoriesService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new CategoriesServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (categories-service), during operation (categoriesServiceClient.getObjectivesByCategory).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.getObjectivesByCategory(idUser ("+idUser+"), idCategory ("+idCategory+"))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new CategoriesServiceException(
-                    "Error (FORBIDDEN) in micro service (categories-service), during operation (categoriesServiceClient.getObjectivesByCategory).",
+                    "Error (FORBIDDEN) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.getObjectivesByCategory(idUser ("+idUser+"), idCategory ("+idCategory+"))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new CategoriesServiceException(
-                    "Error (NOT_FOUND) in micro service (categories-service), during operation (categoriesServiceClient.getObjectivesByCategory).",
+                    "Error (NOT_FOUND) in micro service (categories-service), during operation " +
+                            "(categoriesServiceClient.getObjectivesByCategory(idUser ("+idUser+"), idCategory ("+idCategory+"))).",
                     HttpStatus.NOT_FOUND
             );
         }

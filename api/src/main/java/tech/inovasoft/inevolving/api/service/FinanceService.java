@@ -26,21 +26,24 @@ public class FinanceService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new FinanceServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (finance-service), during operation (financeServiceClient.addPlanningWhenRegistering).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (finance-service), during operation " +
+                    "(financeServiceClient.addPlanningWhenRegistering(idUser(" + idUser + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new FinanceServiceException(
-                    "Error (FORBIDDEN) in micro service (finance-service), during operation (financeServiceClient.addPlanningWhenRegistering).",
+                    "Error (FORBIDDEN) in micro service (finance-service), during operation " +
+                    "(financeServiceClient.addPlanningWhenRegistering(idUser(" + idUser + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new FinanceServiceException(
-                    "Error (NOT_FOUND) in micro service (finance-service), during operation (financeServiceClient.addPlanningWhenRegistering).",
+                    "Error (NOT_FOUND) in micro service (finance-service), during operation " +
+                    "(financeServiceClient.addPlanningWhenRegistering(idUser(" + idUser + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -54,21 +57,24 @@ public class FinanceService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new FinanceServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (finance-service), during operation (financeServiceClient.updateWage).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (finance-service), during operation " +
+                    "(updateWage(idUser(" + idUser + "), dto(" + dto + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new FinanceServiceException(
-                    "Error (FORBIDDEN) in micro service (finance-service), during operation (financeServiceClient.updateWage).",
+                    "Error (FORBIDDEN) in micro service (finance-service), during operation " +
+                    "(updateWage(idUser(" + idUser + "), dto(" + dto + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new FinanceServiceException(
-                    "Error (NOT_FOUND) in micro service (finance-service), during operation (financeServiceClient.updateWage).",
+                    "Error (NOT_FOUND) in micro service (finance-service), during operation " +
+                    "(updateWage(idUser(" + idUser + "), dto(" + dto + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -82,21 +88,24 @@ public class FinanceService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new FinanceServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (finance-service), during operation (financeServiceClient.addTransactionCostOfLiving).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (finance-service), during operation " +
+                    "(addTransactionCostOfLiving(new RequestTransactionDTO(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new FinanceServiceException(
-                    "Error (FORBIDDEN) in micro service (finance-service), during operation (financeServiceClient.addTransactionCostOfLiving).",
+                    "Error (FORBIDDEN) in micro service (finance-service), during operation " +
+                    "(addTransactionCostOfLiving(new RequestTransactionDTO(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new FinanceServiceException(
-                    "Error (NOT_FOUND) in micro service (finance-service), during operation (financeServiceClient.addTransactionCostOfLiving).",
+                    "Error (NOT_FOUND) in micro service (finance-service), during operation " +
+                    "(addTransactionCostOfLiving(new RequestTransactionDTO(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -110,21 +119,24 @@ public class FinanceService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new FinanceServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (finance-service), during operation (financeServiceClient.addTransactionInvestment).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (finance-service), during operation " +
+                    "(addTransactionInvestment(new RequestTransactionDTO(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new FinanceServiceException(
-                    "Error (FORBIDDEN) in micro service (finance-service), during operation (financeServiceClient.addTransactionInvestment).",
+                    "Error (FORBIDDEN) in micro service (finance-service), during operation " +
+                    "(addTransactionInvestment(new RequestTransactionDTO(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new FinanceServiceException(
-                    "Error (NOT_FOUND) in micro service (finance-service), during operation (financeServiceClient.addTransactionInvestment).",
+                    "Error (NOT_FOUND) in micro service (finance-service), during operation " +
+                    "(addTransactionInvestment(new RequestTransactionDTO(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -138,21 +150,24 @@ public class FinanceService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new FinanceServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (finance-service), during operation (financeServiceClient.addTransactionExtraContribution).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (finance-service), during operation " +
+                    "(addTransactionExtraContribution(new RequestTransactionDTO(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new FinanceServiceException(
-                    "Error (FORBIDDEN) in micro service (finance-service), during operation (financeServiceClient.addTransactionExtraContribution).",
+                    "Error (FORBIDDEN) in micro service (finance-service), during operation " +
+                    "(addTransactionExtraContribution(new RequestTransactionDTO(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new FinanceServiceException(
-                    "Error (NOT_FOUND) in micro service (finance-service), during operation (financeServiceClient.addTransactionExtraContribution).",
+                    "Error (NOT_FOUND) in micro service (finance-service), during operation " +
+                    "(addTransactionExtraContribution(new RequestTransactionDTO(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -166,21 +181,24 @@ public class FinanceService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new FinanceServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (finance-service), during operation (financeServiceClient.deleteTransaction).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (finance-service), during operation " +
+                    "(financeServiceClient.deleteTransaction(idUser(" + idUser + "), idTransaction(" + idTransaction + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new FinanceServiceException(
-                    "Error (FORBIDDEN) in micro service (finance-service), during operation (financeServiceClient.deleteTransaction).",
+                    "Error (FORBIDDEN) in micro service (finance-service), during operation " +
+                    "(financeServiceClient.deleteTransaction(idUser(" + idUser + "), idTransaction(" + idTransaction + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new FinanceServiceException(
-                    "Error (NOT_FOUND) in micro service (finance-service), during operation (financeServiceClient.deleteTransaction).",
+                    "Error (NOT_FOUND) in micro service (finance-service), during operation " +
+                    "(financeServiceClient.deleteTransaction(idUser(" + idUser + "), idTransaction(" + idTransaction + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -194,21 +212,24 @@ public class FinanceService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new FinanceServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (finance-service), during operation (financeServiceClient.getTransaction).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (finance-service), during operation " +
+                    "(financeServiceClient.getTransaction(idUser(" + idUser + "), idTransaction(" + idTransaction + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new FinanceServiceException(
-                    "Error (FORBIDDEN) in micro service (finance-service), during operation (financeServiceClient.getTransaction).",
+                    "Error (FORBIDDEN) in micro service (finance-service), during operation " +
+                    "(financeServiceClient.getTransaction(idUser(" + idUser + "), idTransaction(" + idTransaction + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new FinanceServiceException(
-                    "Error (NOT_FOUND) in micro service (finance-service), during operation (financeServiceClient.getTransaction).",
+                    "Error (NOT_FOUND) in micro service (finance-service), during operation " +
+                    "(financeServiceClient.getTransaction(idUser(" + idUser + "), idTransaction(" + idTransaction + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -222,21 +243,24 @@ public class FinanceService {
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new FinanceServiceException(
-                    "Error (INTERNAL_SERVER_ERROR) in micro service (finance-service), during operation (financeServiceClient.getInfosFinanceInDateRange).",
+                    "Error (INTERNAL_SERVER_ERROR) in micro service (finance-service), during operation " +
+                    "(financeServiceClient.getInfosFinanceInDateRange(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + ")))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new FinanceServiceException(
-                    "Error (FORBIDDEN) in micro service (finance-service), during operation (financeServiceClient.getInfosFinanceInDateRange).",
+                    "Error (FORBIDDEN) in micro service (finance-service), during operation " +
+                    "(financeServiceClient.getInfosFinanceInDateRange(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + ")))).",
                     HttpStatus.FORBIDDEN
             );
         }
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new FinanceServiceException(
-                    "Error (NOT_FOUND) in micro service (finance-service), during operation (financeServiceClient.getInfosFinanceInDateRange).",
+                    "Error (NOT_FOUND) in micro service (finance-service), during operation " +
+                    "(financeServiceClient.getInfosFinanceInDateRange(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + ")))).",
                     HttpStatus.NOT_FOUND
             );
         }

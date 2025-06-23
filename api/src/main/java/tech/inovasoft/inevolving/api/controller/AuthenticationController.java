@@ -3,6 +3,7 @@ package tech.inovasoft.inevolving.api.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -27,11 +28,13 @@ import tech.inovasoft.inevolving.api.service.TokenService;
 import tech.inovasoft.inevolving.api.service.client.email_service.dto.EmailRequest;
 import tech.inovasoft.inevolving.api.service.client.finance_service.dto.FinancePlanning;
 import tech.inovasoft.inevolving.api.service.client.motivation_service.dto.ResponseVisionBord;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.UUID;
 
+@Slf4j
 @Tag(name = "Autenticação | Authentication")
 @RestController
 @RequestMapping("/api/authentication")
@@ -75,6 +78,7 @@ public class AuthenticationController {
                 .map(auth -> {
                     User user = (User) auth.getPrincipal();
                     String token = tokenService.generateToken(user);
+
                     if (user.isEmailVerified()) {
                         try {
                             var response = motivationService.generateVisionBordByUserId(user.getId());

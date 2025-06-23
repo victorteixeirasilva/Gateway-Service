@@ -29,7 +29,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.addTask).",
+                    "(taskServiceClient.addTask(new RequestTaskDTO(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -37,7 +37,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.addTask).",
+                    "(taskServiceClient.addTask(new RequestTaskDTO(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -45,7 +45,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.addTask).",
+                    "(taskServiceClient.addTask(new RequestTaskDTO(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -60,7 +60,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.repeatTask).",
+                    "(taskServiceClient.repeatTask(idUser(" + idUser + "), idTask(" + idTask + "), startDate(" + startDate + "), endDate(" + endDate + "), dto(" + dto + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -68,7 +68,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.repeatTask).",
+                    "(taskServiceClient.repeatTask(idUser(" + idUser + "), idTask(" + idTask + "), startDate(" + startDate + "), endDate(" + endDate + "), dto(" + dto + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -76,7 +76,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.repeatTask).",
+                    "(taskServiceClient.repeatTask(idUser(" + idUser + "), idTask(" + idTask + "), startDate(" + startDate + "), endDate(" + endDate + "), dto(" + dto + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -91,7 +91,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTask).",
+                    "(taskServiceClient.updateTask(idUser(" + idUser + "), idTask(" + idTask + "), dto(" + dto + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -99,7 +99,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTask).",
+                    "(taskServiceClient.updateTask(idUser(" + idUser + "), idTask(" + idTask + "), dto(" + dto + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -107,7 +107,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTask).",
+                    "(taskServiceClient.updateTask(idUser(" + idUser + "), idTask(" + idTask + "), dto(" + dto + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -122,7 +122,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTasksAndTheirFutureRepetitions).",
+                    "(taskServiceClient.updateTasksAndTheirFutureRepetitions(idUser(" + idUser + "), idTask(" + idTask + "), endDate(" + endDate + "), dto(" + dto + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -130,7 +130,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTasksAndTheirFutureRepetitions).",
+                    "(taskServiceClient.updateTasksAndTheirFutureRepetitions(idUser(" + idUser + "), idTask(" + idTask + "), endDate(" + endDate + "), dto(" + dto + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -138,7 +138,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTasksAndTheirFutureRepetitions).",
+                    "(taskServiceClient.updateTasksAndTheirFutureRepetitions(idUser(" + idUser + "), idTask(" + idTask + "), endDate(" + endDate + "), dto(" + dto + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -153,7 +153,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTaskStatusToDo).",
+                    "(taskServiceClient.updateTaskStatusToDo(idUser(" + idUser + "), idTask(" + idTask + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -161,7 +161,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTaskStatusToDo).",
+                    "(taskServiceClient.updateTaskStatusToDo(idUser(" + idUser + "), idTask(" + idTask + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -169,7 +169,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTaskStatusToDo).",
+                    "(taskServiceClient.updateTaskStatusToDo(idUser(" + idUser + "), idTask(" + idTask + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -184,7 +184,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTaskStatusInProgress).",
+                    "(taskServiceClient.updateTaskStatusInProgress(idUser(" + idUser + "), idTask(" + idTask + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -192,7 +192,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTaskStatusInProgress).",
+                    "(taskServiceClient.updateTaskStatusInProgress(idUser(" + idUser + "), idTask(" + idTask + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -200,7 +200,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTaskStatusInProgress).",
+                    "(taskServiceClient.updateTaskStatusInProgress(idUser(" + idUser + "), idTask(" + idTask + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -215,7 +215,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTaskStatusDone).",
+                    "(taskServiceClient.updateTaskStatusDone(idUser(" + idUser + "), idTask(" + idTask + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -223,7 +223,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTaskStatusDone).",
+                    "(taskServiceClient.updateTaskStatusDone(idUser(" + idUser + "), idTask(" + idTask + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -231,7 +231,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTaskStatusDone).",
+                    "(taskServiceClient.updateTaskStatusDone(idUser(" + idUser + "), idTask(" + idTask + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -246,7 +246,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTaskStatusLate).",
+                    "(taskServiceClient.updateTaskStatusLate(idUser(" + idUser + "), idTask(" + idTask + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -254,7 +254,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTaskStatusLate).",
+                    "(taskServiceClient.updateTaskStatusLate(idUser(" + idUser + "), idTask(" + idTask + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -262,7 +262,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTaskStatusLate).",
+                    "(taskServiceClient.updateTaskStatusLate(idUser(" + idUser + "), idTask(" + idTask + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -277,7 +277,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTaskStatusCanceled).",
+                    "(taskServiceClient.updateTaskStatusCanceled(new RequestCanceledDTO" +
+                    "(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -285,7 +286,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTaskStatusCanceled).",
+                    "(taskServiceClient.updateTaskStatusCanceled(new RequestCanceledDTO" +
+                    "(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -293,7 +295,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.updateTaskStatusCanceled).",
+                    "(taskServiceClient.updateTaskStatusCanceled(new RequestCanceledDTO" +
+                    "(idUser(" + idUser + "), dto(" + dto + ")))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -308,7 +311,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.deleteTask).",
+                    "(taskServiceClient.deleteTask(idUser(" + idUser + "), idTask(" + idTask + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -316,7 +319,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.deleteTask).",
+                    "(taskServiceClient.deleteTask(idUser(" + idUser + "), idTask(" + idTask + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -324,7 +327,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.deleteTask).",
+                    "(taskServiceClient.deleteTask(idUser(" + idUser + "), idTask(" + idTask + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -339,7 +342,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.deleteTasksAndTheirFutureRepetitions).",
+                    "(taskServiceClient.deleteTasksAndTheirFutureRepetitions" +
+                    "(idUser(" + idUser + "), idTask(" + idTask + "), date(" + date + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -347,7 +351,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.deleteTasksAndTheirFutureRepetitions).",
+                    "(taskServiceClient.deleteTasksAndTheirFutureRepetitions" +
+                    "(idUser(" + idUser + "), idTask(" + idTask + "), date(" + date + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -355,7 +360,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.deleteTasksAndTheirFutureRepetitions).",
+                    "(taskServiceClient.deleteTasksAndTheirFutureRepetitions" +
+                    "(idUser(" + idUser + "), idTask(" + idTask + "), date(" + date + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -370,7 +376,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.lockTaskByObjective).",
+                    "(taskServiceClient.lockTaskByObjective" +
+                    "(completionDate(" + completionDate + "), idUser(" + idUser + "), idObjective(" + idObjective + ")))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -378,7 +385,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.lockTaskByObjective).",
+                    "(taskServiceClient.lockTaskByObjective" +
+                    "(completionDate(" + completionDate + "), idUser(" + idUser + "), idObjective(" + idObjective + ")))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -386,7 +394,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.lockTaskByObjective).",
+                    "(taskServiceClient.lockTaskByObjective" +
+                    "(completionDate(" + completionDate + "), idUser(" + idUser + "), idObjective(" + idObjective + ")))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -401,7 +410,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksInDateRange).",
+                    "(taskServiceClient.getTasksInDateRange" +
+                    "(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -409,7 +419,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksInDateRange).",
+                    "(taskServiceClient.getTasksInDateRange" +
+                    "(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -417,7 +428,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksInDateRange).",
+                    "(taskServiceClient.getTasksInDateRange" +
+                    "(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -432,7 +444,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksInDateRangeByObjectiveId).",
+                    "(taskServiceClient.getTasksInDateRangeByObjectiveId" +
+                    "(idUser(" + idUser + "), idObjective(" + idObjective + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -440,7 +453,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksInDateRangeByObjectiveId).",
+                    "(taskServiceClient.getTasksInDateRangeByObjectiveId" +
+                    "(idUser(" + idUser + "), idObjective(" + idObjective + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -448,7 +462,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksInDateRangeByObjectiveId).",
+                    "(taskServiceClient.getTasksInDateRangeByObjectiveId" +
+                    "(idUser(" + idUser + "), idObjective(" + idObjective + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -463,7 +478,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksByObjectiveId).",
+                    "(taskServiceClient.getTasksByObjectiveId(idUser(" + idUser + "), idObjective(" + idObjective + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -471,7 +486,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksByObjectiveId).",
+                    "(taskServiceClient.getTasksByObjectiveId(idUser(" + idUser + "), idObjective(" + idObjective + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -479,7 +494,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksByObjectiveId).",
+                    "(taskServiceClient.getTasksByObjectiveId(idUser(" + idUser + "), idObjective(" + idObjective + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -494,7 +509,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksInDate).",
+                    "(taskServiceClient.getTasksInDate(idUser(" + idUser + "), date(" + date + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -502,7 +517,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksInDate).",
+                    "(taskServiceClient.getTasksInDate(idUser(" + idUser + "), date(" + date + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -510,7 +525,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksInDate).",
+                    "(taskServiceClient.getTasksInDate(idUser(" + idUser + "), date(" + date + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -525,7 +540,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksLate).",
+                    "(taskServiceClient.getTasksLate(idUser(" + idUser + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -533,7 +548,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksLate).",
+                    "(taskServiceClient.getTasksLate(idUser(" + idUser + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -541,7 +556,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksLate).",
+                    "(taskServiceClient.getTasksLate(idUser(" + idUser + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -556,7 +571,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksToDoInDateRange).",
+                    "(taskServiceClient.getTasksToDoInDateRange" +
+                    "(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -564,7 +580,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksToDoInDateRange).",
+                    "(taskServiceClient.getTasksToDoInDateRange" +
+                    "(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -572,7 +589,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksToDoInDateRange).",
+                    "(taskServiceClient.getTasksToDoInDateRange" +
+                    "(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -587,7 +605,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksToDoInDate).",
+                    "(taskServiceClient.getTasksToDoInDate(idUser(" + idUser + "), date(" + date + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -595,7 +613,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksToDoInDate).",
+                    "(taskServiceClient.getTasksToDoInDate(idUser(" + idUser + "), date(" + date + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -603,7 +621,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksToDoInDate).",
+                    "(taskServiceClient.getTasksToDoInDate(idUser(" + idUser + "), date(" + date + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -618,7 +636,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksInProgressInDateRange).",
+                    "(taskServiceClient.getTasksInProgressInDateRange" +
+                    "(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -626,7 +645,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksInProgressInDateRange).",
+                    "(taskServiceClient.getTasksInProgressInDateRange" +
+                    "(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -634,7 +654,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksInProgressInDateRange).",
+                    "(taskServiceClient.getTasksInProgressInDateRange" +
+                    "(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -649,7 +670,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksInProgressInDate).",
+                    "(taskServiceClient.getTasksInProgressInDate(idUser(" + idUser + "), date(" + date + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -657,7 +678,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksInProgressInDate).",
+                    "(taskServiceClient.getTasksInProgressInDate(idUser(" + idUser + "), date(" + date + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -665,7 +686,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksInProgressInDate).",
+                    "(taskServiceClient.getTasksInProgressInDate(idUser(" + idUser + "), date(" + date + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -680,7 +701,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksDoneInDateRange).",
+                    "(taskServiceClient.getTasksDoneInDateRange" +
+                    "(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -688,7 +710,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksDoneInDateRange).",
+                    "(taskServiceClient.getTasksDoneInDateRange" +
+                    "(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -696,7 +719,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksDoneInDateRange).",
+                    "(taskServiceClient.getTasksDoneInDateRange" +
+                    "(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -711,7 +735,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksDoneInDate).",
+                    "(taskServiceClient.getTasksDoneInDate(idUser(" + idUser + "), date(" + date + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -719,7 +743,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksDoneInDate).",
+                    "(taskServiceClient.getTasksDoneInDate(idUser(" + idUser + "), date(" + date + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -727,7 +751,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksDoneInDate).",
+                    "(taskServiceClient.getTasksDoneInDate(idUser(" + idUser + "), date(" + date + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -742,7 +766,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksCanceledInDateRange).",
+                    "(taskServiceClient.getTasksCanceledInDateRange" +
+                    "(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -750,7 +775,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksCanceledInDateRange).",
+                    "(taskServiceClient.getTasksCanceledInDateRange" +
+                    "(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -758,7 +784,8 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksCanceledInDateRange).",
+                    "(taskServiceClient.getTasksCanceledInDateRange" +
+                    "(idUser(" + idUser + "), startDate(" + startDate + "), endDate(" + endDate + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
@@ -773,7 +800,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.INTERNAL_SERVER_ERROR)) {
             throw new TasksServiceException(
                     "Error (INTERNAL_SERVER_ERROR) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksCanceledInDate).",
+                    "(taskServiceClient.getTasksCanceledInDate(idUser(" + idUser + "), date(" + date + "))).",
                     HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
@@ -781,7 +808,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.FORBIDDEN)) {
             throw new TasksServiceException(
                     "Error (FORBIDDEN) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksCanceledInDate).",
+                    "(taskServiceClient.getTasksCanceledInDate(idUser(" + idUser + "), date(" + date + "))).",
                     HttpStatus.FORBIDDEN
             );
         }
@@ -789,7 +816,7 @@ public class TasksService {
         if (response.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
             throw new TasksServiceException(
                     "Error (NOT_FOUND) in micro service (tasks-service), during operation " +
-                            "(taskServiceClient.getTasksCanceledInDate).",
+                    "(taskServiceClient.getTasksCanceledInDate(idUser(" + idUser + "), date(" + date + "))).",
                     HttpStatus.NOT_FOUND
             );
         }
