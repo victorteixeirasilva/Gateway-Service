@@ -13,4 +13,6 @@ public interface UserRepository {
     void saveInDatabase(User user);
 
     List<User> getUsersIsVerifiedAndActive();
+
+    List<User> getUsersDisconnectedAndActive();
 }

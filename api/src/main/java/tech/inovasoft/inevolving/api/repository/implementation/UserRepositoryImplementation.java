@@ -6,6 +6,8 @@ import tech.inovasoft.inevolving.api.domain.model.User;
 import tech.inovasoft.inevolving.api.repository.interfaces.UserRepository;
 import tech.inovasoft.inevolving.api.repository.interfaces.UserRepositoryJPA;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -35,6 +37,15 @@ public class UserRepositoryImplementation implements UserRepository {
     public List<User> getUsersIsVerifiedAndActive() {
         try {
             return userRepositoryJPA.findAllVerifiedAndActive();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<User> getUsersDisconnectedAndActive() {
+        try {
+            return userRepositoryJPA.findAllDisconnectedAndActive(Date.valueOf(LocalDate.now().minusDays(2)));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

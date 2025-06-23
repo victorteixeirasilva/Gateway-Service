@@ -31,4 +31,12 @@ public class UserService {
                 .map(UserEmailDTO::new)
                 .collect(Collectors.toList());
     }
+
+    public List<UserEmailDTO> getUsersDisconnectedAndActive() {
+        List<User> users = userRepository.getUsersDisconnectedAndActive();
+
+        return users.stream()
+                .map(UserEmailDTO::new)
+                .collect(Collectors.toList());
+    }
 }

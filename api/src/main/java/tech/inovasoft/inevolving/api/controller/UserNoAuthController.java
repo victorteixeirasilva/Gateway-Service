@@ -35,10 +35,10 @@ public class UserNoAuthController {
         });
     }
 
-    @GetMapping("/verified/active")
-    Mono<ResponseEntity<List<UserEmailDTO>>> getUsersIsVerifiedAndActive() {
+    @GetMapping("/disconnected")
+    Mono<ResponseEntity<List<UserEmailDTO>>> getUsersDisconnectedAndActive() {
         return Mono.fromCallable(() -> {
-            List<UserEmailDTO> userList = userService.getUsersIsVerifiedAndActive();
+            List<UserEmailDTO> userList = userService.getUsersDisconnectedAndActive();
             return ResponseEntity.ok(userList);
         });
     }
