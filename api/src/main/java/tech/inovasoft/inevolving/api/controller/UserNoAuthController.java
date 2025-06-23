@@ -11,26 +11,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 import tech.inovasoft.inevolving.api.domain.dto.response.ResponseMessageDTO;
-import tech.inovasoft.inevolving.api.domain.dto.response.UserEmailDTO;
 import tech.inovasoft.inevolving.api.service.UserService;
 
-import java.util.List;
 import java.util.UUID;
 
 @Tag(name = "Usuário | User")
 @RestController
-@RequestMapping("/auth/api/user")
+@RequestMapping("/api/user")
 @SecurityRequirement(name = "bearerAuth")
-public class UserController {
+public class UserNoAuthController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("/verified/active")
-    Mono<ResponseEntity<List<UserEmailDTO>>> getUsersIsVerifiedAndActive() {
+    @Operation(description = "End-point publico para confirmar o email do usuário.")
+    @GetMapping("/confirm/email/{idUser}")
+    Mono<ResponseEntity<ResponseMessageDTO>> confirmEmail(@PathVariable("idUser") UUID idUser) {
         return Mono.fromCallable(() -> {
-            List<UserEmailDTO> userList = userService.getUsersIsVerifiedAndActive();
-            return ResponseEntity.ok(userList);
+            ResponseMessageDTO responseMessageDTO = userService.confirmEmail(idUser);
+            return ResponseEntity.ok(responseMessageDTO);
         });
     }
 

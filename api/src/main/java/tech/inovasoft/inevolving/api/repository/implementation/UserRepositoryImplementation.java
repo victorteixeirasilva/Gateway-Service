@@ -6,6 +6,7 @@ import tech.inovasoft.inevolving.api.domain.model.User;
 import tech.inovasoft.inevolving.api.repository.interfaces.UserRepository;
 import tech.inovasoft.inevolving.api.repository.interfaces.UserRepositoryJPA;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -27,6 +28,15 @@ public class UserRepositoryImplementation implements UserRepository {
             userRepositoryJPA.save(user);
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<User> getUsersIsVerifiedAndActive() {
+        try {
+            return userRepositoryJPA.findAllVerifiedAndActive();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }

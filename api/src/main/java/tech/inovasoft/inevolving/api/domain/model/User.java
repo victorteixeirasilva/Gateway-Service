@@ -28,6 +28,7 @@ public class User implements UserDetails {
     private String password;
     private UserRole role;
     private Date lastLogin;
+    private boolean isActive;
 
 
     @Override

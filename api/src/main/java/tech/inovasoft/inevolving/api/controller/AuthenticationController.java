@@ -18,6 +18,7 @@ import tech.inovasoft.inevolving.api.domain.dto.response.ResponseMessageDTO;
 import tech.inovasoft.inevolving.api.domain.exception.EmailNotVerifiedException;
 import tech.inovasoft.inevolving.api.domain.model.User;
 import tech.inovasoft.inevolving.api.domain.model.UserRole;
+import tech.inovasoft.inevolving.api.repository.interfaces.UserRepository;
 import tech.inovasoft.inevolving.api.repository.interfaces.UserRepositoryJPA;
 import tech.inovasoft.inevolving.api.service.EmailService;
 import tech.inovasoft.inevolving.api.service.FinanceService;
@@ -59,6 +60,8 @@ public class AuthenticationController {
     private FinanceService financeService;
     @Autowired
     private EmailService emailService;
+    @Autowired
+    private UserRepository repository;
 
     @Operation(
             summary = "End-point de Login",
@@ -75,8 +78,12 @@ public class AuthenticationController {
                     if (user.isEmailVerified()) {
                         try {
                             var response = motivationService.generateVisionBordByUserId(user.getId());
+                            user.setLastLogin(Date.valueOf(LocalDate.now()));
+                            repository.saveInDatabase(user);
                             return ResponseEntity.ok(new ResponseLoginDTO(token, response.urlVisionBord()));
                         } catch (Exception e){
+                            user.setLastLogin(Date.valueOf(LocalDate.now()));
+                            repository.saveInDatabase(user);
                             return ResponseEntity.ok(new ResponseLoginDTO(token, "No dreams were found"));
                         }
                     } else {
@@ -103,6 +110,9 @@ public class AuthenticationController {
                     newUser.setPassword(passwordEncoder.encode(data.password()));
                     newUser.setLastLogin(Date.valueOf(LocalDate.now()));
                     newUser.setRole(UserRole.USER);
+                    newUser.setActive(true);
+                    newUser.setEmailVerified(false);
+                    newUser.setLastLogin(Date.valueOf(LocalDate.now()));
 
                     return Mono.fromCallable(() -> {
                         UUID idUser = userRepository.save(newUser).getId();
