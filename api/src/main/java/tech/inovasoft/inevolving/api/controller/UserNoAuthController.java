@@ -43,4 +43,12 @@ public class UserNoAuthController {
         });
     }
 
+    @GetMapping("/verified/active")
+    Mono<ResponseEntity<List<UserEmailDTO>>> getUsersIsVerifiedAndActive() {
+        return Mono.fromCallable(() -> {
+            List<UserEmailDTO> userList = userService.getUsersIsVerifiedAndActive();
+            return ResponseEntity.ok(userList);
+        });
+    }
+
 }
