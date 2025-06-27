@@ -8,7 +8,7 @@ import tech.inovasoft.inevolving.api.service.client.motivation_service.dto.*;
 import java.util.List;
 import java.util.UUID;
 
-@FeignClient(name = "motivation-service", url = "http://localhost:8080/ms/motivation/dreams")
+@FeignClient(name = "motivation-service", url = "${inevolving.uri.ms.motivation}")
 public interface MotivationServiceClient {
 
     @PostMapping

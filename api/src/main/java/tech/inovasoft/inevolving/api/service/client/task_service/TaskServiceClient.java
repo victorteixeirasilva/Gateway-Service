@@ -15,7 +15,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
-@FeignClient(name = "task-service", url = "http://localhost:8085/ms/tasks")
+@FeignClient(name = "task-service", url = "${inevolving.uri.ms.task}")
 public interface TaskServiceClient {
 
     @PostMapping

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
-@FeignClient(name = "dashboard-service", url = "http://localhost:8086/ms/dashboard")
+@FeignClient(name = "dashboard-service", url = "${inevolving.uri.ms.dashboard}")
 public interface DashboardServiceClient {
 
     @GetMapping("/{idUser}")

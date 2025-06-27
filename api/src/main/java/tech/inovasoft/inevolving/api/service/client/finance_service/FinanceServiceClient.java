@@ -12,7 +12,7 @@ import java.sql.Date;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
-@FeignClient(name = "finance-service", url = "http://localhost:8093/ms/finance")
+@FeignClient(name = "finance-service", url = "${inevolving.uri.ms.finance}")
 public interface FinanceServiceClient {
 
     @PostMapping("/{idUser}")

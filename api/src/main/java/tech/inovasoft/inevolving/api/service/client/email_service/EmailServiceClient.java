@@ -13,7 +13,7 @@ import tech.inovasoft.inevolving.api.service.client.email_service.dto.EmailReque
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
-@FeignClient(name = "email-service", url = "http://localhost:8092/ms/email")
+@FeignClient(name = "email-service", url = "${inevolving.uri.ms.email}")
 public interface EmailServiceClient {
 
     @PostMapping

@@ -10,7 +10,7 @@ import tech.inovasoft.inevolving.api.service.client.books_service.dto.ResponseDe
 import java.util.List;
 import java.util.UUID;
 
-@FeignClient(name = "books-service", url = "http://localhost:8091/ms/books")
+@FeignClient(name = "books-service", url = "${inevolving.uri.ms.books}")
 public interface BooksServiceClient {
 
     @PostMapping("/{idUser}")

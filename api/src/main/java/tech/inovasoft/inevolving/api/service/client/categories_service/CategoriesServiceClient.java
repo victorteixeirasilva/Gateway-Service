@@ -7,7 +7,7 @@ import tech.inovasoft.inevolving.api.service.client.categories_service.dto.*;
 
 import java.util.UUID;
 
-@FeignClient(name = "categories-service", url = "http://localhost:8081/ms/categories")
+@FeignClient(name = "categories-service", url = "${inevolving.uri.ms.categories}")
 public interface CategoriesServiceClient {
 
     @PostMapping("/{idUser}")
