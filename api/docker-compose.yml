@@ -1,0 +1,13 @@
+services:
+  gateway-service:
+    build:
+      context: .
+    container_name: gateway-service
+    ports:
+      - "2327:2327"
+    networks:
+      - backend
+
+networks:
+  backend:
+    external: true
