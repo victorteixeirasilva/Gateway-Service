@@ -125,7 +125,7 @@ public class AuthenticationController {
                                 newUser.getEmail(),
                                 "Bem-vindo ao InEvolving, confirme seu-email.",
                                 "Confirme seu email clicando no link abaixo: \n" +
-                                        "http://localhost:8090/api/user/confirm/email/" + idUser
+                                        "http://localhost:2327/api/user/confirm/email/" + idUser
                         ));
                         return ResponseEntity.ok(new ResponseMessageDTO("Usuário registrado com sucesso!"));
                     }).subscribeOn(Schedulers.boundedElastic());
