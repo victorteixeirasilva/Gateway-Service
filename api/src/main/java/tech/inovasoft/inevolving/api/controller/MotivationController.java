@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 import tech.inovasoft.inevolving.api.domain.dto.request.RequestDreamDTO;
 import tech.inovasoft.inevolving.api.domain.dto.request.RequestDreams;
 import tech.inovasoft.inevolving.api.domain.model.User;
@@ -95,13 +96,13 @@ public class MotivationController {
 
     @Operation(description = "End-point para gerar o vision bord.")
     @GetMapping("/visionbord/generate")
-    Mono<ResponseEntity<ResponseVisionBord>> generateVisionBordByUserId(Authentication authentication){
+    public Mono<ResponseEntity<ResponseVisionBord>> generateVisionBordByUserId(Authentication authentication) {
         return Mono.fromCallable(() -> {
             var user = (User) authentication.getPrincipal();
             var idUser = user.getId();
             ResponseVisionBord visionBord = motivationService.generateVisionBordByUserId(idUser);
             return ResponseEntity.ok(visionBord);
-        });
+        }).subscribeOn(Schedulers.boundedElastic()); // Executa em thread separada
     }
 
 }
