@@ -246,7 +246,7 @@ public class TaskController {
     }
 
     @Operation(description = "End-point para buscar as tarefas por objetivo.")
-    @GetMapping("/{idObjective}")
+    @GetMapping("/objective/{idObjective}")
     Mono<ResponseEntity<List<Task>>> getTasksByObjectiveId(
             Authentication authentication,
             @PathVariable UUID idObjective
