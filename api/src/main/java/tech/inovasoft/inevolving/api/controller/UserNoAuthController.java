@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
+import tech.inovasoft.inevolving.api.config.log.LogMailScheduler;
 import tech.inovasoft.inevolving.api.domain.dto.response.ResponseMessageDTO;
 import tech.inovasoft.inevolving.api.domain.dto.response.UserEmailDTO;
 import tech.inovasoft.inevolving.api.service.UserService;

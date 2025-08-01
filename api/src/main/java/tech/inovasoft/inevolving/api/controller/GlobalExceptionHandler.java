@@ -148,13 +148,13 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(FeignException.class)
     public Mono<ResponseEntity<ExceptionResponse>> handleTasksServiceException(FeignException ex) {
         ExceptionResponse response = new ExceptionResponse(
-                HttpStatus.INTERNAL_SERVER_ERROR,
+                HttpStatus.valueOf(ex.status()),
                 ex.getClass().getName()
         );
 
         log.error("ERROR: {} - {} - {} - {}",  ex.getMessage(), ex.getClass().getSimpleName(), ex.getLocalizedMessage(), ex.request());
         return Mono.just(ResponseEntity
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .status(ex.status())
                 .body(response));
     }
 
